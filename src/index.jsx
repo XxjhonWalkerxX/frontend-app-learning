@@ -36,12 +36,18 @@ import DecodePageRoute from './decode-page-route';
 import { DECODE_ROUTES, ROUTES } from './constants';
 import PreferencesUnsubscribe from './preferences-unsubscribe';
 
+// ✨ IMPORTAR EL HEADER EMI
+import EMIHeader from './components/EMIHeader';
+import './components/EMIHeader/EMIHeader.scss';
+
 subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider store={initializeStore()}>
       <Helmet>
         <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
       </Helmet>
+      {/* ✨ AGREGAR EL HEADER EMI AQUÍ */}
+      <EMIHeader />
       <PathFixesProvider>
         <NoticesProvider>
           <UserMessagesProvider>

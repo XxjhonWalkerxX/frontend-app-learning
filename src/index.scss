@@ -1,3 +1,4 @@
+
 @import "~@edx/brand/paragon/fonts";
 @import "~@edx/brand/paragon/variables";
 @import "~@openedx/paragon/scss/core/core";
@@ -6,7 +7,66 @@
 @import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
 
+// --- EMI NAV STYLES ---
+.container-xl.py-2.d-flex.align-items-center {
+  @extend .site-header-desktop;
+  gap: 1.5rem;
+}
 
+.course-title-lockup {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.course-info-header .title {
+  @extend .emi-course-title;
+}
+.course-info-header .org {
+  @extend .emi-course-org;
+}
+
+.nav-course a {
+  @extend .nav-link;
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 0.5rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-course a:hover {
+  color: #ffd700 !important;
+}
+
+.user-dropdown .dropdown-toggle {
+  background: #5a122c !important;
+  color: #fff !important;
+  border: 1px solid #ffd700 !important;
+  box-shadow: none !important;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.user-dropdown .dropdown-toggle:hover {
+  background: #ffd700 !important;
+  color: #5a122c !important;
+}
+
+.theme-toggle-button,
+.mr-3:has(.theme-toggle-button) {
+  display: none !important;
+}
+
+.container-xl .nav-link,
+.container-xl .nav-link.ml-2,
+.container-xl .nav-course a,
+.container-xl .emi-course-title,
+.container-xl .emi-course-org,
+.container-xl .course-info-header .title,
+.container-xl .course-info-header .org {
+  color: #fff !important;
+  font-weight: 500;
+}
+////////////////////////////////////////////////
 #root {
   display: flex;
   flex-direction: column;
@@ -473,6 +533,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+// Ocultar el botón de cambio de tema en todos los dispositivos
+.theme-toggle-button,
+.mr-3:has(.theme-toggle-button) {
+  display: none !important;
 }
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";

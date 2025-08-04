@@ -8,6 +8,42 @@
 @import "~@edx/frontend-component-header/dist/index";
 
 // --- EMI NAV STYLES ---
+// --- EMI TABS STYLE ---
+.nav-underline-tabs {
+  display: flex;
+  gap: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 1.5rem 0 1rem 0;
+}
+
+.nav-underline-tabs .nav-link {
+  background: #fff;
+  color: #a86a2c !important;
+  border: 2px solid #a86a2c;
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-underline-tabs .nav-link.active {
+  background: #a86a2c;
+  color: #fff !important;
+  border: 2px solid #a86a2c;
+  font-weight: bold;
+}
+
+.nav-underline-tabs .nav-link:hover,
+.nav-underline-tabs .nav-link:focus {
+  background: #a86a2c22;
+  color: #a86a2c !important;
+  border: 2px solid #a86a2c;
+}
 .container-xl.py-2.d-flex.align-items-center {
   @extend .site-header-desktop;
   gap: 1.5rem;

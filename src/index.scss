@@ -485,6 +485,34 @@
 .nav-link:active,
 .nav-link.active {
   color: #fff !important;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #ffd700 !important; // dorado al hacer hover
+  background-color: #4a0f24 !important; // tono más oscuro
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #ffd700; // resalta el activo
+}
+
+.learning-header {
+  background-color: #5a122c !important;
+  color: #fff !important;
+}
+
+.user-dropdown .dropdown-toggle {
+  background-color: #fff !important;
+  color: #5a122c !important;
+  border: 1px solid #5a122c !important;
+}
+.user-dropdown .dropdown-toggle:hover {
+  background-color: #ffd700 !important;
+  color: #5a122c !important;
+}
 }
 
 .site-header-mobile {

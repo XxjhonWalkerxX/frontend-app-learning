@@ -475,6 +475,83 @@ $emi-gold: #d4af37;
 $emi-gradient-start: #A3998E;
 $emi-gradient-end: #B3A297;
 
+// EMI Glassmorphism Navbar Override
+.learning-header.customise.indigo-header-version {
+  background: linear-gradient(135deg, rgba(153, 0, 51, 0.7) 0%, rgba(255, 236, 209, 0.6) 100%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(153, 0, 51, 0.25);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  margin: 16px auto 24px auto;
+  width: 98%;
+  padding: 0 32px;
+  position: relative;
+  z-index: 100;
+}
+// EMI Glassmorphism para el contenedor del navbar
+.learning-header .container-xl.py-2.d-flex.align-items-center {
+  background: linear-gradient(135deg, rgba(153, 0, 51, 0.7) 0%, rgba(255, 236, 209, 0.6) 100%) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px 0 rgba(153, 0, 51, 0.25) !important;
+  border: 1px solid rgba(255, 215, 0, 0.3) !important;
+  margin: 8px auto 16px auto !important;
+  width: 98% !important;
+  padding: 0 32px !important;
+  position: relative !important;
+  z-index: 101 !important;
+}
+
+.learning-header .logo img {
+  max-height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(153, 0, 51, 0.2));
+}
+
+.learning-header .course-title-lockup {
+  color: #990033;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-shadow: 0 2px 8px rgba(255, 236, 209, 0.3);
+}
+
+.learning-header .nav-course a {
+  color: #990033 !important;
+  background: rgba(255, 215, 0, 0.15);
+  border-radius: 12px;
+  padding: 6px 18px;
+  margin: 0 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.learning-header .nav-course a:hover {
+  background: rgba(255, 215, 0, 0.35);
+  color: #fff !important;
+}
+
+.learning-header .user-dropdown .dropdown-toggle {
+  background: rgba(255, 236, 209, 0.5);
+  color: #990033;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  font-weight: 600;
+}
+.learning-header .user-dropdown .dropdown-toggle:hover {
+  background: rgba(153, 0, 51, 0.15);
+  color: #fff;
+}
+
+.learning-header .theme-toggle-button {
+  background: rgba(255, 215, 0, 0.15);
+  border-radius: 12px;
+  padding: 4px 10px;
+}
+
+.learning-header .text-gray-700 {
+  color: #990033 !important;
+  font-weight: 500;
+}
 @import './components/EMIHeader/EMIHeader.scss';
 @import './course-home/progress-tab/certificate-status/CertificateStatus.scss';
 

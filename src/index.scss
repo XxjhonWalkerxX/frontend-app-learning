@@ -29,21 +29,14 @@
       img {
         display: block;
         height: 100%;
-    .learning-header {
-      background: #5a122c !important;
-      color: #fff !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
+      }
     }
   }
 
   footer {
-    background: #5a122c !important;
-    color: #fff !important;
-    border: 1px solid #ffd700 !important;
-    box-shadow: none !important;
-    border-radius: 8px;
+    flex: 0;
   }
+}
 
 .nav-underline-tabs {
   margin: 0 0 -1px;
@@ -450,7 +443,37 @@
   width: 56px !important;
   height: 56px !important;
 }
+.logo,
+.logo img {
+  height: 50px !important;
+  width: auto !important;
+}
+.site-header-desktop {
+  background-color: #5a122c !important;
+  height: 90px !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
 
+.nav-link,
+.nav-link:visited,
+.nav-link:active,
+.nav-link.active {
+  color: #fff !important;
+}
+
+.site-header-mobile {
+  background-color: #5a122c !important;
+  color: #fff !important;
+  min-height: 40px !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
@@ -472,184 +495,3 @@
 @import "course-tabs/course-tabs-navigation.scss";
 @import "courseware/course/sidebar/common/SidebarBase.scss";
 @import "courseware/course/sidebar/sidebars/course-outline/CourseOutlineTray.scss";
-
-.logo,
-.logo img {
-  height: 50px !important;
-  width: auto !important;
-}
-.site-header-desktop {
-  background-color: #5a122c !important;
-  height: 90px !important;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.nav-link,
-.nav-link:visited,
-.nav-link:active,
-.nav-link.active {
-  color: #fff !important;
-  background: transparent !important;
-  border: none !important;
-  font-weight: 500;
-  box-shadow: none !important;
-  text-shadow: none !important;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: #ffd700 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-}
-
-.nav-link.active {
-  font-weight: bold;
-  color: #ffd700 !important;
-  border-bottom: 2px solid #ffd700 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-  border-radius: 0 !important;
-}
-
-// ...existing code...
-.learning-header {
-  background: #5a122c !important;
-  color: #fff !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-}
-
-// ...existing code...
-.user-dropdown .dropdown-toggle {
-  background: #5a122c !important;
-  color: #fff !important;
-  border: 1px solid #ffd700 !important;
-  box-shadow: none !important;
-  border-radius: 8px;
-}
-.user-dropdown .dropdown-toggle:hover {
-  background: #ffd700 !important;
-  color: #5a122c !important;
-}
-
-.site-header-mobile {
-  background-color: #5a122c !important;
-  color: #fff !important;
-  min-height: 40px !important;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// Glassmorphism global para el dashboard y contenido principal
-// --- EMI Modern Dashboard Styles ---
-
-.emi-dashboard-container {
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(90,18,44,0.08);
-  margin: 2rem auto;
-  max-width: 1200px;
-  padding: 2rem;
-}
-
-.emi-header {
-  display: flex;
-  align-items: center;
-  background: #5a122c;
-  color: #fff;
-  padding: 1.5rem 2rem;
-}
-.emi-header .logo {
-  height: 48px;
-  margin-right: 1.5rem;
-}
-.emi-header .emi-course-info {
-  flex-grow: 1;
-}
-.emi-header .emi-course-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-}
-.emi-header .emi-course-org {
-  color: #ffd700;
-  font-size: 1.1rem;
-}
-
-.emi-tabs {
-  display: flex;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-.emi-tab {
-  background: #fff;
-  color: #5a122c;
-  border: 2px solid #ffd700;
-  border-radius: 24px;
-  padding: 0.5rem 1.5rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-.emi-tab.active {
-  background: #ffd700;
-  color: #5a122c;
-  font-weight: bold;
-}
-
-.emi-main {
-  padding: 1rem 0;
-}
-.emi-section-title {
-  color: #5a122c;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-.emi-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(90,18,44,0.08);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.emi-card-title {
-  color: #5a122c;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-.emi-card-status.complete {
-  color: #43a047;
-  font-weight: bold;
-}
-.emi-card-status.pending {
-  color: #bdbdbd;
-}
-.emi-card-action {
-  background: #5a122c;
-  color: #fff;
-  border: 2px solid #ffd700;
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s;
-}
-.emi-card-action:hover {
-  background: #ffd700;
-  color: #5a122c;
-}

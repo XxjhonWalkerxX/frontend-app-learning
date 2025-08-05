@@ -1,3 +1,12 @@
+.container-xl.py-2.d-flex.align-items-center {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+}
 
 @import "~@edx/brand/paragon/fonts";
 @import "~@edx/brand/paragon/variables";
@@ -91,6 +100,14 @@
 .container-xl.py-2.d-flex.align-items-center {
   @extend .site-header-desktop;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background: #fff;
+  z-index: 10;
 }
 
 .course-title-lockup {
@@ -227,7 +244,7 @@
 }
 
 .notification-btn {
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1}) {
     height: 3rem;
   }
 }
@@ -236,7 +253,7 @@
   display: flex;
   flex-grow: 1;
 
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1}) {
     max-width: 100%;
   }
 
@@ -244,7 +261,7 @@
     margin: -1px -1px 0;
   }
 
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1}) {
     width: 100% !important;
   }
 
@@ -389,7 +406,7 @@
     justify-content: center;
     align-items: center;
 
-    @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+    @media (max-width: #{map-get($grid-breakpoints, "sm") - 1}) {
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
@@ -471,7 +488,7 @@
   max-width: 640px;
   margin: 0 auto;
 
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1}) {
     flex-direction: column;
     gap: $spacer;
   }
@@ -488,7 +505,7 @@
   .next-button {
     flex-basis: 75%;
 
-     @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+     @media (max-width: #{map-get($grid-breakpoints, "sm") - 1}) {
        flex-basis: 100%;
      }
   }
@@ -496,7 +513,7 @@
   .previous-button {
     flex-basis: 25%;
 
-     @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+     @media (max-width: #{map-get($grid-breakpoints, "sm") - 1}) {
        flex-basis: 100%;
      }
   }

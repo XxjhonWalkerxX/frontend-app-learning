@@ -57,7 +57,7 @@ const Tabs = ({ children, className, ...attrs }) => {
   return (
     <nav
       {...attrs}
-      className={classNames('nav flex-nowrap', className)}
+      className={classNames('nav', className)}
       ref={containerElementRef}
     >
       {tabChildren}

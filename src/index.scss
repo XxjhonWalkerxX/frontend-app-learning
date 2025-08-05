@@ -172,15 +172,6 @@
     padding: 0.5rem 0.5rem;
     gap: 0.5rem;
   }
-}
-
-  // Responsive: mantener visible y desplazable en móviles
-  @media (max-width: 768px) {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 0.5rem 0.5rem;
-    gap: 0.5rem;
-  }
 
   .nav-link {
     border-bottom: 4px solid transparent;
@@ -231,7 +222,7 @@
 }
 
 .notification-btn {
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1px}) {
     height: 3rem;
   }
 }
@@ -240,7 +231,7 @@
   display: flex;
   flex-grow: 1;
 
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1px}) {
     max-width: 100%;
   }
 
@@ -248,7 +239,7 @@
     margin: -1px -1px 0;
   }
 
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1px}) {
     width: 100% !important;
   }
 
@@ -393,7 +384,7 @@
     justify-content: center;
     align-items: center;
 
-    @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+    @media (max-width: #{map-get($grid-breakpoints, "sm") - 1px}) {
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
@@ -475,7 +466,7 @@
   max-width: 640px;
   margin: 0 auto;
 
-  @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+  @media (max-width: #{map-get($grid-breakpoints, "sm") - 1px}) {
     flex-direction: column;
     gap: $spacer;
   }
@@ -492,7 +483,7 @@
   .next-button {
     flex-basis: 75%;
 
-     @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+     @media (max-width: #{map-get($grid-breakpoints, "sm") - 1px}) {
        flex-basis: 100%;
      }
   }
@@ -500,7 +491,7 @@
   .previous-button {
     flex-basis: 25%;
 
-     @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
+     @media (max-width: #{map-get($grid-breakpoints, "sm") - 1px}) {
        flex-basis: 100%;
      }
   }

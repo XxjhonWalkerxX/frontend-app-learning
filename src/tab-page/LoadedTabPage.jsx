@@ -78,11 +78,9 @@ const LoadedTabPage = ({
             ...logistrationAlert,
           }}
         />
-        <div className="d-flex position-relative">
-          <div className="container-xl flex-grow-1" style={{ marginRight: '340px' }}>
-            {children}
-          </div>
-          <CourseTabsNavigation tabs={tabs} className="course-tabs-sidebar" activeTabSlug={activeTabSlug} />
+        <CourseTabsNavigation tabs={tabs} className="mb-3" activeTabSlug={activeTabSlug} />
+        <div className="container-xl">
+          {children}
         </div>
       </main>
     </>

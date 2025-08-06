@@ -146,11 +146,13 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
     .donut {
       filter: drop-shadow(0 8px 20px rgba($primary-color, 0.15));
       transition: all 0.3s ease;
-      max-width: 200px !important;
+      max-width: 250px !important; // Círculo más grande
+      width: 60% !important; // Ancho relativo aumentado
+      height: auto !important;
 
       &:hover {
         filter: drop-shadow(0 12px 25px rgba($primary-color, 0.2));
-        transform: scale(1.05);
+        transform: scale(1.03); // Escala menor para que no se vea exagerado
       }
 
       // Hole del donut con borde sutil
@@ -159,11 +161,11 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
         filter: drop-shadow(0 2px 8px rgba($primary-color, 0.05));
       }
 
-      // Texto del número
+      // Texto del número más grande
       .donut-chart-number {
         fill: $primary-color;
         font-weight: 800;
-        font-size: 0.7rem;
+        font-size: 0.8rem; // Texto más grande para el círculo más grande
         font-family: $font-family-sans-serif;
       }
 
@@ -171,15 +173,15 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
       .donut-chart-label {
         fill: $secondary-color;
         font-weight: 700;
-        font-size: 0.28rem;
+        font-size: 0.32rem; // Label proporcionalmente más grande
         text-transform: uppercase;
         letter-spacing: 1px;
       }
 
-      // Segmentos del donut
+      // Segmentos del donut más delgados
       .donut-segment,
       .donut-ring {
-        stroke-width: 10px;
+        stroke-width: 5px; // Más delgado para el círculo más grande
         transition: all 0.3s ease;
 
         &.complete-stroke {
@@ -203,7 +205,7 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
         &:hover {
           .donut-segment,
           .donut-ring {
-            stroke-width: 12px;
+            stroke-width: 6px; // Hover effect más sutil
           }
         }
 

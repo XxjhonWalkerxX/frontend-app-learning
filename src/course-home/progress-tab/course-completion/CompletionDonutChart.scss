@@ -48,7 +48,7 @@ $emi-white: #ffffff;
 }
 
 .donut-ring, .donut-segment {
-  stroke-width: 8px;
+  stroke-width: 5px;
   fill: transparent;
 }
 
@@ -60,7 +60,7 @@ $emi-white: #ffffff;
     outline: none;
 
     circle {
-      stroke-width: 9px;
+      stroke-width: 6px;
     }
   }
 }

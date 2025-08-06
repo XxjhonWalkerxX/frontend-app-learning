@@ -32,23 +32,95 @@ const CompletionDonutChart = ({ intl }) => {
 
   return (
     <>
-      <svg role="img" width="100%" height="100%" viewBox="0 0 50 50" className="donut" style={{ maxWidth: '220px', aspectRatio: '1/1' }} aria-hidden="true">
-        {/* The radius (or "r" attribute) is based off of a circumference of 100 in order to simplify percentage
-            calculations. The subsequent stroke-dasharray values found in each segment should add up to equal 100
-            in order to wrap around the circle once. */}
-        <circle className="donut-hole" fill="#fff" cx="25" cy="25" r="18.5" />
-        <g className="donut-chart-text">
-          <text x="25" y="24" className="donut-chart-number" textAnchor="middle" dominantBaseline="central">
-            {completePercentage}{isLocaleRtl && '\u200f'}%
-          </text>
-          <text x="25" y="29" className="donut-chart-label" textAnchor="middle" dominantBaseline="central">
-            {intl.formatMessage(messages.donutLabel)}
-          </text>
-        </g>
-        <IncompleteDonutSegment incompletePercentage={incompletePercentage} />
-        <LockedDonutSegment lockedPercentage={lockedPercentage} />
-        <CompleteDonutSegment completePercentage={completePercentage} lockedPercentage={lockedPercentage} />
-      </svg>
+      <div className="emi-progress-container">
+        {/* Diseño Principal - Circular Progress con glassmorphism */}
+        <div className="emi-circular-progress">
+          <div className="progress-circle">
+            <svg className="progress-ring" width="160" height="160">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ffd700" />
+                  <stop offset="50%" stopColor="#a86a2c" />
+                  <stop offset="100%" stopColor="#5a122c" />
+                </linearGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge> 
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              
+              {/* Background circle */}
+              <circle
+                className="progress-bg"
+                cx="80"
+                cy="80"
+                r="70"
+                fill="none"
+                stroke="rgba(255, 255, 255, 0.1)"
+                strokeWidth="8"
+              />
+              
+              {/* Progress circle */}
+              <circle
+                className="progress-bar"
+                cx="80"
+                cy="80"
+                r="70"
+                fill="none"
+                stroke="url(#progressGradient)"
+                strokeWidth="8"
+                strokeLinecap="round"
+                strokeDasharray={`${completePercentage * 4.4} 440`}
+                transform="rotate(-90 80 80)"
+                filter="url(#glow)"
+              />
+            </svg>
+            
+            {/* Center content */}
+            <div className="progress-content">
+              <div className="progress-percentage">{completePercentage}%</div>
+              <div className="progress-label">{intl.formatMessage(messages.donutLabel)}</div>
+              <div className="progress-stats">
+                <span className="completed-units">{completeCount}</span>
+                <span className="total-units">/ {numTotalUnits}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Cards */}
+        <div className="progress-stats-cards">
+          <div className="stat-card completed">
+            <div className="stat-icon">✓</div>
+            <div className="stat-info">
+              <div className="stat-number">{completeCount}</div>
+              <div className="stat-label">Completado</div>
+            </div>
+          </div>
+          
+          <div className="stat-card incomplete">
+            <div className="stat-icon">○</div>
+            <div className="stat-info">
+              <div className="stat-number">{incompleteCount}</div>
+              <div className="stat-label">Pendiente</div>
+            </div>
+          </div>
+          
+          {lockedCount > 0 && (
+            <div className="stat-card locked">
+              <div className="stat-icon">🔒</div>
+              <div className="stat-info">
+                <div className="stat-number">{lockedCount}</div>
+                <div className="stat-label">Bloqueado</div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className="sr-only">
         {intl.formatMessage(messages.percentComplete, { percent: completePercentage })}
         {intl.formatMessage(messages.percentIncomplete, { percent: incompletePercentage })}

@@ -428,3 +428,94 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
     }
   }
 }
+
+// === SOBREESCRIBIR BOTONES ADICIONALES GLOBALMENTE ===
+// Botón tertiary (Dismiss)
+.btn-tertiary {
+  background: transparent !important;
+  border: 1px solid $secondary-color !important;
+  color: $secondary-color !important;
+  transition: all 0.3s ease !important;
+
+  &:hover,
+  &:focus {
+    background: $secondary-color !important;
+    border-color: $secondary-color !important;
+    color: $white !important;
+    transform: translateY(-1px) !important;
+  }
+
+  &:active {
+    background: darken($secondary-color, 10%) !important;
+    border-color: darken($secondary-color, 10%) !important;
+    transform: translateY(0) !important;
+  }
+}
+
+// Botón brand global (Start course)
+.btn-brand {
+  background: linear-gradient(135deg, $secondary-color 0%, lighten($secondary-color, 15%) 100%) !important;
+  border: none !important;
+  color: $white !important;
+  border-radius: 30px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba($white, 0.2), transparent) !important;
+    transition: left 0.6s !important;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, darken($secondary-color, 5%) 0%, $secondary-color 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba($secondary-color, 0.4) !important;
+    color: $white !important;
+    
+    &::before {
+      left: 100% !important;
+    }
+  }
+
+  &:focus {
+    background: linear-gradient(135deg, $secondary-color 0%, lighten($secondary-color, 15%) 100%) !important;
+    outline: 2px solid $accent-color !important;
+    outline-offset: 2px !important;
+    color: $white !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+    background: linear-gradient(135deg, darken($secondary-color, 10%) 0%, darken($secondary-color, 5%) 100%) !important;
+  }
+}
+
+// === SOBREESCRIBIR ICONOS SVG GLOBALMENTE ===
+// Iconos con clases de color de texto
+.text-gray-400,
+.text-gray-500 {
+  &.svg-inline--fa,
+  svg {
+    color: $secondary-color !important;
+    fill: currentColor !important;
+  }
+}
+
+// Iconos de éxito
+.text-success {
+  &.svg-inline--fa,
+  svg {
+    color: $success-color !important;
+    fill: currentColor !important;
+  }
+}

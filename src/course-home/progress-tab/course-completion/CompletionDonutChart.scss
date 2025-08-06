@@ -1,3 +1,11 @@
+// === VARIABLES EMI PARA DONUT CHART ===
+$emi-primary: #5a122c;
+$emi-secondary: #a86a2c;
+$emi-accent: #ffd700;
+$emi-success: #28a745;
+$emi-light: #f8f9fa;
+$emi-white: #ffffff;
+
 .donut rect {
   fill: transparent;
   width: 4px;
@@ -8,20 +16,24 @@
 .donut-chart-label {
   font: {
     family: $font-family-sans-serif;
-    size: .2rem;
-    weight: $font-weight-normal;
+    size: .25rem;
+    weight: $font-weight-bold;
   }
   text-anchor: middle;
+  fill: $emi-secondary !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .donut-chart-number {
   font: {
-    family: $font-family-monospace;
-    size: .5rem;
+    family: $font-family-sans-serif;
+    size: .6rem;
     weight: $font-weight-bold;
   }
   line-height: 1rem;
   text-anchor: middle;
+  fill: $emi-primary !important;
   -moz-transform: translateY(-0.6em);
   -ms-transform: translateY(-0.6em);
   -webkit-transform: translateY(-0.6em);
@@ -29,7 +41,6 @@
 }
 
 .donut-chart-text {
-  fill: $primary-500;
   -moz-transform: translateY(0.25em);
   -ms-transform: translateY(0.25em);
   -webkit-transform: translateY(0.25em);
@@ -37,7 +48,7 @@
 }
 
 .donut-ring, .donut-segment {
-  stroke-width: 6px;
+  stroke-width: 8px;
   fill: transparent;
 }
 
@@ -49,26 +60,29 @@
     outline: none;
 
     circle {
-      stroke-width: 7px;
+      stroke-width: 9px;
     }
   }
 }
 
 .donut-ring, .donut-segment, .donut-hole {
   &.complete-stroke {
-    stroke: $info-500;
+    stroke: $emi-secondary !important;
+    filter: drop-shadow(0 2px 4px rgba($emi-secondary, 0.3));
   }
 
   &.divider-stroke {
-    stroke-width: 7px;
-    stroke: white;
+    stroke-width: 9px;
+    stroke: $emi-white;
   }
 
   &.incomplete-stroke {
-    stroke: $light-300;
+    stroke: lighten($emi-light, 3%) !important;
+    opacity: 0.6;
   }
 
   &.locked-stroke {
-    stroke: $primary-500;
+    stroke: $emi-primary !important;
+    filter: drop-shadow(0 2px 4px rgba($emi-primary, 0.3));
   }
 }

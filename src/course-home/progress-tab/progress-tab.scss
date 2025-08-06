@@ -80,28 +80,152 @@ section.text-dark-700,
   }
 }
 
-// === COURSE COMPLETION (DONUT CHART) ===
-.donut {
-  filter: drop-shadow(0 4px 12px rgba($primary-color, 0.1));
+// === COURSE COMPLETION SECTION ===
+section.text-dark-700.mb-4.rounded.raised-card.p-4 {
+  background: linear-gradient(135deg, $white 0%, lighten($light-bg, 3%) 100%);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba($primary-color, 0.1);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 
-  .donut-segment.complete-stroke {
-    stroke: $secondary-color;
-    filter: drop-shadow(0 2px 4px rgba($secondary-color, 0.2));
+  // Borde superior EMI más prominente
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, $secondary-color 0%, $accent-color 50%, $primary-color 100%);
+    z-index: 1;
   }
 
-  .donut-chart-text {
-    .donut-chart-number {
-      fill: $primary-color;
-      font-weight: 700;
-      font-size: 0.7rem;
+  &:hover {
+    box-shadow: 0 12px 40px rgba($primary-color, 0.15);
+    transform: translateY(-3px);
+  }
+
+  h2 {
+    color: $primary-color;
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, $secondary-color, $accent-color);
+      border-radius: 2px;
+    }
+  }
+
+  p.small {
+    color: lighten($primary-color, 15%);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  // Contenedor del donut mejorado
+  .col-12.col-sm-6.col-md-5.mt-sm-n3.p-0.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+
+    // Contenedor del SVG mejorado
+    .donut {
+      filter: drop-shadow(0 8px 20px rgba($primary-color, 0.15));
+      transition: all 0.3s ease;
+      max-width: 200px !important;
+
+      &:hover {
+        filter: drop-shadow(0 12px 25px rgba($primary-color, 0.2));
+        transform: scale(1.05);
+      }
+
+      // Hole del donut con borde sutil
+      .donut-hole {
+        fill: $white;
+        filter: drop-shadow(0 2px 8px rgba($primary-color, 0.05));
+      }
+
+      // Texto del número
+      .donut-chart-number {
+        fill: $primary-color;
+        font-weight: 800;
+        font-size: 0.7rem;
+        font-family: $font-family-sans-serif;
+      }
+
+      // Texto del label
+      .donut-chart-label {
+        fill: $secondary-color;
+        font-weight: 700;
+        font-size: 0.28rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      // Segmentos del donut
+      .donut-segment,
+      .donut-ring {
+        stroke-width: 10px;
+        transition: all 0.3s ease;
+
+        &.complete-stroke {
+          stroke: $secondary-color;
+          filter: drop-shadow(0 3px 6px rgba($secondary-color, 0.3));
+        }
+
+        &.incomplete-stroke {
+          stroke: lighten($light-bg, 5%);
+          opacity: 0.7;
+        }
+
+        &.locked-stroke {
+          stroke: $primary-color;
+          filter: drop-shadow(0 3px 6px rgba($primary-color, 0.3));
+        }
+      }
+
+      // Grupos de segmentos
+      .donut-segment-group {
+        &:hover {
+          .donut-segment,
+          .donut-ring {
+            stroke-width: 12px;
+          }
+        }
+
+        &:focus {
+          outline: 2px solid $accent-color;
+          outline-offset: 4px;
+          border-radius: 50%;
+        }
+      }
     }
 
-    .donut-chart-label {
-      fill: $secondary-color;
-      font-weight: 600;
-      font-size: 0.45rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    // Texto de accesibilidad mejorado
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   }
 }

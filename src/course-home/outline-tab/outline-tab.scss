@@ -1,0 +1,259 @@
+// === ESTILOS PARA OUTLINE TAB EMI ===
+
+// Variables de color para mantener consistencia
+$primary-color: #5a122c;
+$secondary-color: #a86a2c;
+$accent-color: #ffd700;
+$success-color: #28a745;
+$info-color: #17a2b8;
+$light-bg: #f8f9fa;
+$white: #ffffff;
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+
+// === CONTENEDOR PRINCIPAL ===
+.course-outline-tab {
+  background: linear-gradient(135deg, $light-bg 0%, $white 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px $shadow-light;
+
+  // Columna principal del contenido
+  .col-md-8 {
+    padding-right: 2rem;
+
+    @media (max-width: 768px) {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+  }
+
+  // Columna lateral
+  .col-md-4 {
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+  }
+}
+
+// === ALERTAS Y NOTIFICACIONES ===
+.alert-success {
+  background: linear-gradient(135deg, lighten($success-color, 45%) 0%, lighten($success-color, 40%) 100%);
+  border: 1px solid lighten($success-color, 30%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 12px rgba($success-color, 0.2);
+
+  .alert-heading {
+    color: darken($success-color, 10%);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-primary {
+    background: $success-color;
+    border-color: $success-color;
+    border-radius: 24px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken($success-color, 10%);
+      border-color: darken($success-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba($success-color, 0.3);
+    }
+  }
+}
+
+// === TARJETA DE PROGRESO ===
+.pgn__card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px $shadow-light;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px $shadow-medium;
+  }
+
+  .pgn__card-header {
+    background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 10%) 100%);
+    color: $white;
+    padding: 1.5rem;
+    border-bottom: none;
+
+    .pgn__card-header-title-md {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .btn-brand {
+      background: $accent-color;
+      border-color: $accent-color;
+      color: $primary-color;
+      border-radius: 24px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: lighten($accent-color, 10%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba($accent-color, 0.4);
+      }
+    }
+  }
+}
+
+// === BOTÓN EXPAND ALL ===
+.btn-outline-primary {
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
+  background: $white;
+  border-radius: 24px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background: $secondary-color;
+    border-color: $secondary-color;
+    color: $white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($secondary-color, 0.3);
+  }
+}
+
+// === LISTA DEL CURSO ===
+#courseHome-outline {
+  .collapsible-card-lg {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px $shadow-light;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 16px $shadow-medium;
+    }
+
+    &.is-open {
+      box-shadow: 0 4px 16px $shadow-medium;
+    }
+
+    .collapsible-trigger {
+      background: linear-gradient(135deg, $white 0%, $light-bg 100%);
+      padding: 1.25rem;
+      border: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(135deg, $light-bg 0%, lighten($secondary-color, 45%) 100%);
+      }
+
+      .text-dark-500 {
+        color: $primary-color !important;
+        font-weight: 600;
+      }
+
+      .text-success {
+        color: $success-color !important;
+      }
+    }
+
+    .collapsible-body {
+      background: $white;
+      padding: 1rem 1.25rem;
+
+      .row {
+        margin-bottom: 0.75rem;
+
+        a {
+          color: $secondary-color;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: darken($secondary-color, 15%);
+            text-decoration: underline;
+          }
+        }
+
+        .text-gray-500 {
+          background: lighten($secondary-color, 45%);
+          color: $secondary-color;
+          padding: 0.25rem 0.75rem;
+          border-radius: 12px;
+          font-size: 0.75rem;
+          font-weight: 500;
+        }
+
+        .text-body {
+          color: lighten($primary-color, 20%);
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+// === RESPONSIVE IMPROVEMENTS ===
+@media (max-width: 768px) {
+  .course-outline-tab {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .pgn__card {
+    .pgn__card-header {
+      padding: 1rem;
+      
+      .pgn__card-header-title-md {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .btn-outline-primary {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+// === ANIMACIONES ===
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.course-outline-tab > * {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// === MEJORAS DE ACCESIBILIDAD ===
+.collapsible-trigger:focus {
+  outline: 2px solid $accent-color;
+  outline-offset: 2px;
+}
+
+.btn:focus {
+  outline: 2px solid $accent-color;
+  outline-offset: 2px;
+}

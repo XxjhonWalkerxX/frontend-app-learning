@@ -1,0 +1,461 @@
+// === ESTILOS PARA PROGRESS TAB EMI ===
+
+// Variables de color para mantener consistencia con outline-tab
+$primary-color: #5a122c;
+$secondary-color: #5a122c;
+$accent-color: #ffd700;
+$success-color: #28a745;
+$info-color: #17a2b8;
+$light-bg: #f8f9fa;
+$white: #ffffff;
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+
+// === HEADER DEL PROGRESS TAB ===
+.course-home .row.w-100.m-0.mt-3.mb-4.justify-content-between {
+  h1 {
+    color: $primary-color;
+    font-weight: 700;
+    font-size: 2.5rem;
+    position: relative;
+    margin-bottom: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, $secondary-color 0%, $accent-color 100%);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+// === SECCIONES PRINCIPALES ===
+section.text-dark-700,
+.grades.my-4.p-4.rounded.raised-card {
+  background: linear-gradient(135deg, $white 0%, lighten($light-bg, 2%) 100%);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba($primary-color, 0.08);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+
+  // Borde superior colorido
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $secondary-color 0%, $accent-color 50%, $primary-color 100%);
+    z-index: 1;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 35px rgba($primary-color, 0.12);
+    transform: translateY(-2px);
+  }
+
+  h2, h3.h4 {
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  p.small {
+    color: lighten($primary-color, 20%);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+// === COURSE COMPLETION (DONUT CHART) ===
+.donut {
+  filter: drop-shadow(0 4px 12px rgba($primary-color, 0.1));
+
+  .donut-segment.complete-stroke {
+    stroke: $secondary-color;
+    filter: drop-shadow(0 2px 4px rgba($secondary-color, 0.2));
+  }
+
+  .donut-chart-text {
+    .donut-chart-number {
+      fill: $primary-color;
+      font-weight: 700;
+      font-size: 0.7rem;
+    }
+
+    .donut-chart-label {
+      fill: $secondary-color;
+      font-weight: 600;
+      font-size: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+// === CERTIFICATE STATUS CARD ===
+.pgn__card.pgn__card-light[data-testid*="certificate"] {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba($success-color, 0.1);
+  background: linear-gradient(135deg, $white 0%, lighten($success-color, 48%) 100%);
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $success-color 0%, $accent-color 100%);
+  }
+
+  .pgn__card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba($success-color, 0.2);
+
+    .pgn__card-header-title-md {
+      color: darken($success-color, 10%);
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+  }
+
+  .pgn__card-section {
+    color: darken($success-color, 15%);
+    line-height: 1.6;
+
+    .pgn__hyperlink {
+      color: $secondary-color;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: darken($secondary-color, 15%);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .pgn__card-footer {
+    background: transparent;
+    padding-top: 1.5rem;
+
+    .btn-outline-brand {
+      background: transparent;
+      border: 2px solid $success-color;
+      color: $success-color;
+      border-radius: 25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $success-color;
+        border-color: $success-color;
+        color: $white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba($success-color, 0.3);
+      }
+    }
+  }
+}
+
+// === GRADES SECTION ===
+.grade-bar {
+  filter: drop-shadow(0 2px 8px rgba($primary-color, 0.1));
+
+  .grade-bar__base {
+    fill: lighten($light-bg, 2%);
+    stroke: rgba($primary-color, 0.1);
+    stroke-width: 1;
+  }
+
+  .grade-bar--passing {
+    fill: $secondary-color;
+  }
+
+  .grade-bar--current-passing {
+    fill: linear-gradient(90deg, $secondary-color 0%, $accent-color 100%);
+  }
+
+  .grade-bar__divider {
+    fill: $white;
+    stroke: $primary-color;
+    stroke-width: 2;
+  }
+
+  text {
+    fill: $primary-color;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+}
+
+// Banner de éxito
+.row.w-100.m-0.px-4.py-3.py-md-4.rounded-bottom.bg-success-100 {
+  background: linear-gradient(135deg, lighten($success-color, 45%) 0%, lighten($success-color, 42%) 100%) !important;
+  border-top: 2px solid rgba($success-color, 0.2);
+
+  .pgn__icon.text-success-300 {
+    color: $success-color !important;
+    background: $white;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 2px 8px rgba($success-color, 0.2);
+  }
+
+  .h4 {
+    color: darken($success-color, 10%);
+    font-weight: 700;
+  }
+}
+
+// === TABLAS DE DATOS ===
+.pgn__data-table {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba($primary-color, 0.05);
+
+  thead {
+    background: linear-gradient(135deg, $light-bg 0%, lighten($secondary-color, 45%) 100%);
+
+    th {
+      border-bottom: 2px solid rgba($secondary-color, 0.1);
+      color: $primary-color;
+      font-weight: 700;
+      padding: 1rem;
+
+      .h5 {
+        color: $primary-color;
+        font-weight: 700;
+        margin: 0;
+      }
+    }
+  }
+
+  tbody {
+    .pgn__data-table-row {
+      transition: all 0.2s ease;
+      border-bottom: 1px solid rgba($secondary-color, 0.08);
+
+      &:hover {
+        background: rgba($secondary-color, 0.03);
+        transform: translateX(4px);
+      }
+
+      .pgn__data-table-cell-wrap {
+        padding: 1rem;
+        color: $primary-color;
+
+        .muted-link {
+          color: $secondary-color;
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: darken($secondary-color, 15%);
+            text-decoration: underline;
+          }
+        }
+
+        // Celdas con peso de fuente bold
+        &.font-weight-bold {
+          color: $primary-color;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+// Footer de tabla
+.pgn__data-table-footer {
+  background: linear-gradient(135deg, lighten($primary-color, 45%) 0%, lighten($secondary-color, 48%) 100%) !important;
+  border-top: 2px solid rgba($primary-color, 0.1) !important;
+  padding: 1rem;
+
+  .small {
+    color: $primary-color;
+    font-weight: 600;
+
+    &.font-weight-bold {
+      font-weight: 700;
+      color: darken($primary-color, 5%);
+    }
+  }
+}
+
+// === COLLAPSIBLE SECTIONS ===
+.pgn_collapsible {
+  .pgn__icon {
+    color: $secondary-color;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: darken($secondary-color, 15%);
+      transform: scale(1.1);
+    }
+  }
+}
+
+// === RELATED LINKS SIDEBAR ===
+.col-12.col-md-4.p-0.px-md-4 {
+  section {
+    background: linear-gradient(135deg, $white 0%, lighten($light-bg, 3%) 100%);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba($primary-color, 0.06);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba($primary-color, 0.1);
+      transform: translateY(-2px);
+    }
+
+    h3.h4 {
+      color: $primary-color;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        position: relative;
+
+        &:hover {
+          background: rgba($secondary-color, 0.05);
+          transform: translateX(4px);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 20px;
+          background: $accent-color;
+          border-radius: 2px;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+
+        .pgn__hyperlink {
+          color: $secondary-color;
+          font-weight: 700;
+          text-decoration: none;
+          font-size: 1rem;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: darken($secondary-color, 15%);
+          }
+        }
+
+        p {
+          color: lighten($primary-color, 20%);
+          font-size: 0.85rem;
+          line-height: 1.4;
+          margin: 0.5rem 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+// === BOTONES GLOBALES ===
+.btn-icon.btn-icon-primary.btn-icon-sm {
+  background: $secondary-color !important;
+  border-color: $secondary-color !important;
+  color: $white !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+
+  &:hover {
+    background: darken($secondary-color, 10%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba($secondary-color, 0.3) !important;
+  }
+
+  .pgn__icon,
+  svg {
+    color: $white !important;
+  }
+}
+
+// === RESPONSIVE DESIGN ===
+@media (max-width: 768px) {
+  section.text-dark-700,
+  .grades.my-4.p-4.rounded.raised-card {
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .donut {
+    max-width: 140px !important;
+  }
+
+  .col-12.col-md-4.p-0.px-md-4 {
+    section {
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// === ANIMACIONES ===
+@keyframes fadeInProgress {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Aplicar animaciones a las secciones principales
+section.text-dark-700,
+.grades.my-4.p-4.rounded.raised-card {
+  animation: fadeInProgress 0.6s ease-out;
+}
+
+// Animación escalonada para múltiples secciones
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(1) { animation-delay: 0.1s; }
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(2) { animation-delay: 0.2s; }
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(3) { animation-delay: 0.3s; }
+.row.w-100.m-0 > .col-12:nth-child(1) .grades { animation-delay: 0.4s; }

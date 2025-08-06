@@ -191,6 +191,43 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
   &:hover::after {
     opacity: 0.1;
   }
+
+  // === SOBREESCRIBIR ACCIONES DEL HEADER ===
+  // Selector específico para sobreescribir el background color existente
+  &.raised-card .pgn__card-header-actions a,
+  .pgn__card-header-actions a {
+    background: $secondary-color !important; // Sobreescribir el color diferente
+    border: none !important;
+    border-radius: 25px !important; // Más redondeado que el original (6px)
+    font-size: 14px !important;
+    line-height: 20px !important;
+    padding: 12px 20px !important; // Mejor proporción que 9px 17px
+    color: $white !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 3px 8px rgba($secondary-color, 0.25) !important;
+
+    &:hover {
+      background: darken($secondary-color, 10%) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 15px rgba($secondary-color, 0.35) !important;
+      color: $white !important;
+      text-decoration: none !important;
+    }
+
+    &:focus {
+      outline: 2px solid $accent-color !important;
+      outline-offset: 2px !important;
+      background: $secondary-color !important;
+    }
+
+    &:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 3px 8px rgba($secondary-color, 0.25) !important;
+    }
+  }
 }
 
 // === BOTÓN EXPAND ALL ===

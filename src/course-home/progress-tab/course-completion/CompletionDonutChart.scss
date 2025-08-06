@@ -16,35 +16,26 @@ $emi-white: #ffffff;
 .donut-chart-label {
   font: {
     family: $font-family-sans-serif;
-    size: .25rem;
+    size: .3rem;
     weight: $font-weight-bold;
   }
   text-anchor: middle;
   fill: $emi-secondary !important;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  dominant-baseline: central;
 }
 
 .donut-chart-number {
   font: {
     family: $font-family-sans-serif;
-    size: .6rem;
+    size: .8rem;
     weight: $font-weight-bold;
   }
-  line-height: 1rem;
   text-anchor: middle;
   fill: $emi-primary !important;
-  -moz-transform: translateY(-0.6em);
-  -ms-transform: translateY(-0.6em);
-  -webkit-transform: translateY(-0.6em);
-  transform: translateY(-0.6em);
-}
-
-.donut-chart-text {
-  -moz-transform: translateY(0.25em);
-  -ms-transform: translateY(0.25em);
-  -webkit-transform: translateY(0.25em);
-  transform: translateY(0.25em);
+  dominant-baseline: central;
+  font-weight: 800;
 }
 
 .donut-ring, .donut-segment {

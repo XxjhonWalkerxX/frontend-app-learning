@@ -56,10 +56,6 @@ const CompletionDonutChart = ({ intl }) => {
           r="19"
           stroke="#e9ecef"
           strokeWidth="3"
-          strokeDasharray={`${completePercentage * 1.19} 119`}
-          strokeDashoffset="29.75"
-          strokeLinecap="round"
-          transform="rotate(-90 21 21)"
         />
         <circle
           fill="none"
@@ -68,8 +64,8 @@ const CompletionDonutChart = ({ intl }) => {
           r="19"
           stroke="url(#progressGradient)"
           strokeWidth="3"
-          strokeDasharray={`${completePercentage * 1.19} 119`}
-          strokeDashoffset="29.75"
+          strokeDasharray={`${(completePercentage / 100) * 119.38} 119.38`}
+          strokeDashoffset="0"
           strokeLinecap="round"
           transform="rotate(-90 21 21)"
         />

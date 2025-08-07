@@ -24,7 +24,7 @@ $emi-white: #ffffff;
 .donut-chart-label {
   font: {
     family: $font-family-sans-serif;
-    size: .35rem;
+    size: .2rem !important;
     weight: $font-weight-bold;
   }
   text-anchor: middle;
@@ -38,7 +38,7 @@ $emi-white: #ffffff;
 .donut-chart-number {
   font: {
     family: $font-family-sans-serif;
-    size: .9rem;
+    size: .9rem !important;
     weight: 900;
   }
   line-height: 1;

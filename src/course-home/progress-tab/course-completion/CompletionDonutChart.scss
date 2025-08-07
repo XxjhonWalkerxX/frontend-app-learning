@@ -13,38 +13,52 @@ $emi-white: #ffffff;
   transform-origin: center;
 }
 
+// Mejora para el círculo central
+.donut-hole {
+  fill: rgba(255, 255, 255, 0.98) !important;
+  stroke: rgba(90, 18, 44, 0.1) !important;
+  stroke-width: 1px !important;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+}
+
 .donut-chart-label {
   font: {
     family: $font-family-sans-serif;
-    size: .25rem;
+    size: .35rem;
     weight: $font-weight-bold;
   }
   text-anchor: middle;
   fill: $emi-secondary !important;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  dominant-baseline: middle;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .donut-chart-number {
   font: {
     family: $font-family-sans-serif;
-    size: .6rem;
-    weight: $font-weight-bold;
+    size: .85rem;
+    weight: 900;
   }
-  line-height: 1rem;
+  line-height: 1;
   text-anchor: middle;
   fill: $emi-primary !important;
-  -moz-transform: translateY(-0.6em);
-  -ms-transform: translateY(-0.6em);
-  -webkit-transform: translateY(-0.6em);
-  transform: translateY(-0.6em);
+  dominant-baseline: middle;
+  font-weight: 900;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  -moz-transform: translateY(-0.4em);
+  -ms-transform: translateY(-0.4em);
+  -webkit-transform: translateY(-0.4em);
+  transform: translateY(-0.4em);
 }
 
 .donut-chart-text {
-  -moz-transform: translateY(0.25em);
-  -ms-transform: translateY(0.25em);
-  -webkit-transform: translateY(0.25em);
-  transform: translateY(0.25em);
+  -moz-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  -webkit-transform: translateY(0.15em);
+  transform: translateY(0.15em);
 }
 
 .donut-ring, .donut-segment {

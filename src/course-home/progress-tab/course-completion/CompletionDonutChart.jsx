@@ -32,16 +32,16 @@ const CompletionDonutChart = ({ intl }) => {
 
   return (
     <>
-      <svg role="img" width="100%" height="100%" viewBox="0 0 42 42" className="donut" style={{ maxWidth: '178px' }} aria-hidden="true">
+      <svg role="img" width="100%" height="100%" viewBox="0 0 42 42" className="donut" style={{ maxWidth: '180px' }} aria-hidden="true">
         {/* The radius (or "r" attribute) is based off of a circumference of 100 in order to simplify percentage
             calculations. The subsequent stroke-dasharray values found in each segment should add up to equal 100
             in order to wrap around the circle once. */}
         <circle className="donut-hole" fill="#fff" cx="21" cy="21" r="15.91549430918954" />
         <g className="donut-chart-text">
-          <text x="50%" y="50%" className="donut-chart-number">
+          <text x="50%" y="48%" className="donut-chart-number">
             {completePercentage}{isLocaleRtl && '\u200f'}%
           </text>
-          <text x="50%" y="50%" className="donut-chart-label">
+          <text x="50%" y="55%" className="donut-chart-label">
             {intl.formatMessage(messages.donutLabel)}
           </text>
         </g>

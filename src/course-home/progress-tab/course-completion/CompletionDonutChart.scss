@@ -30,16 +30,15 @@ $emi-white: #ffffff;
   text-anchor: middle;
   fill: $emi-secondary !important;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   dominant-baseline: central;
   font-weight: 700;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .donut-chart-number {
   font: {
     family: $font-family-sans-serif;
-    size: .85rem;
+    size: .9rem;
     weight: 900;
   }
   line-height: 1;
@@ -47,7 +46,6 @@ $emi-white: #ffffff;
   fill: $emi-primary !important;
   dominant-baseline: central;
   font-weight: 900;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .donut-ring, .donut-segment {

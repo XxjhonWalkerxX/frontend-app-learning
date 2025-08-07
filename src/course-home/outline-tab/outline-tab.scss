@@ -1,23 +1,25 @@
 // === ESTILOS PARA OUTLINE TAB EMI ===
 
-// Variables de color para mantener consistencia
-$primary-color: #5a122c;
-$secondary-color: #5a122c;
-$accent-color: #ffd700;
-$success-color: #28a745;
-$info-color: #17a2b8;
-$light-bg: #f8f9fa;
-$white: #ffffff;
-$shadow-light: rgba(0, 0, 0, 0.1);
-$shadow-medium: rgba(0, 0, 0, 0.15);
+// Variables de color EMI actualizadas
+$primary-color: #5a122c;        // Vino principal
+$secondary-color: #8b2c4a;      // Vino más claro para marcos  
+$accent-color: #ffd700;         // Dorado para acentos
+$white: #ffffff;               // Blanco
+$light-bg: #f8f8f8;          // Gris claro para fondos
+$text-color: #2c1810;        // Negro/marrón para texto
+$success-color: #28a745;        // Verde éxito
+$info-color: #17a2b8;          // Azul información
+$shadow-light: rgba(90, 18, 44, 0.1);    // Sombras basadas en vino
+$shadow-medium: rgba(90, 18, 44, 0.15);
 
 // === CONTENEDOR PRINCIPAL ===
 .course-outline-tab {
-  background: $white;
+  background: #f8f8f8 !important;
   border-radius: 16px;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 20px $shadow-light;
+  box-shadow: 0 4px 20px rgba(90, 18, 44, 0.1) !important;
+  border: 1px solid rgba($primary-color, 0.1) !important;
 
   // Columna principal del contenido
   .col-md-8 {
@@ -39,46 +41,43 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 
 // === ALERTAS Y NOTIFICACIONES ===
 .alert-success {
-  background: lighten($success-color, 40%);
-  border: 1px solid lighten($success-color, 30%);
+  background: lighten($success-color, 40%) !important;
+  border: 1px solid lighten($success-color, 30%) !important;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 3px 12px rgba($success-color, 0.2);
+  box-shadow: 0 3px 12px rgba($success-color, 0.2) !important;
+  color: $text-color !important;
 
-  .alert-heading {
-    color: darken($success-color, 10%);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    .alert-heading {
+    color: darken($success-color, 10%) !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
   }
 
   .btn-primary {
-    background: $success-color;
-    border-color: $success-color;
-    border-radius: 24px;
-    padding: 0.75rem 2rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-
+    background: $primary-color !important;
+    border-color: $primary-color !important;
+    color: $white !important;
+    
     &:hover {
-      background: darken($success-color, 10%);
-      border-color: darken($success-color, 10%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba($success-color, 0.3);
+      background: $accent-color !important;
+      color: $primary-color !important;
+      border-color: $accent-color !important;
     }
   }
 }
 
 // === TARJETA DE PROGRESO ===
 .pgn__card {
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 6px 30px rgba($primary-color, 0.12);
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  background: $white;
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 30px rgba($primary-color, 0.12) !important;
+  margin-bottom: 1.5rem !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  background: $white !important;
   
   // Efecto de borde superior colorido
   &::before {
@@ -88,7 +87,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
     left: 0;
     right: 0;
     height: 4px;
-    background: $secondary-color;
+    background: $accent-color !important;
     z-index: 1;
   }
 
@@ -98,12 +97,11 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
   }
 
   .pgn__card-header {
-    background: rgba($white, 0.98);
-    backdrop-filter: blur(10px);
-    color: $primary-color;
-    padding: 2rem;
-    border-bottom: 1px solid rgba($secondary-color, 0.1);
-    position: relative;
+    background: rgba($white, 0.95) !important;
+    border-bottom: 1px solid rgba($primary-color, 0.1) !important;
+    padding: 1.5rem 2rem !important;
+    position: relative !important;
+    z-index: 2 !important;
 
     .pgn__card-header-title-md {
       font-size: 1.4rem;
@@ -225,13 +223,13 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 
 // === BOTÓN EXPAND ALL ===
 .btn-outline-primary {
-  border: 2px solid $secondary-color;
-  color: $secondary-color;
-  background: $white;
-  border-radius: 24px;
-  padding: 0.75rem 2rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  border: 2px solid $primary-color !important;
+  color: $primary-color !important;
+  background: $white !important;
+  border-radius: 24px !important;
+  padding: 0.75rem 2rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
 
   &:hover,
   &:focus {

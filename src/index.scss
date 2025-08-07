@@ -16,6 +16,16 @@
 @import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
 
+// === PALETA DE COLORES EMI ===
+$emi-primary: #5a122c !default;        // Vino principal
+$emi-accent: #ffd700 !default;         // Dorado para acentos, botones, títulos
+$emi-cream: #f5f5dc !default;          // Crema claro para acentos suaves
+$emi-background: #f8f8f8 !default;     // Gris claro para fondos
+$emi-beige: #f5f5dc !default;          // Beige para fondos secundarios
+$emi-text: #2c1810 !default;           // Negro/marrón para texto
+$emi-light-wine: #8b2c4a !default;     // Vino más claro para marcos
+$emi-white: #ffffff !default;          // Blanco puro
+
 // --- EMI NAV STYLES ---
 // --- EMI TABS STYLE ---
 
@@ -29,7 +39,7 @@
   padding-right: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  background: #fff;
+  background: #f8f8f8 !important;
   z-index: 10;
 }
 
@@ -60,7 +70,7 @@
 
 .user-dropdown .dropdown-toggle {
   background: #5a122c !important;
-  color: #fff !important;
+  color: #ffffff !important;
   border: 1px solid #ffd700 !important;
   box-shadow: none !important;
   border-radius: 8px;
@@ -83,7 +93,7 @@
 .container-xl .emi-course-org,
 .container-xl .course-info-header .title,
 .container-xl .course-info-header .org {
-  color: #fff !important;
+  color: #2c1810 !important;
   font-weight: 500;
 }
 ////////////////////////////////////////////////
@@ -562,58 +572,35 @@
 // === ESTILOS GLOBALES EMI ===
 // Variables globales EMI
 $emi-primary: #5a122c;
-$emi-secondary: #a86a2c;
+$emi-secondary: #8b2c4a;
 $emi-accent: #ffd700;
 $emi-white: #ffffff;
+$emi-background: #f8f8f8;
+$emi-text: #2c1810;
 
 // === SOBREESCRIBIR BOTONES ICON PRIMARY GLOBALMENTE ===
 .btn-icon.btn-icon-primary,
 .btn-icon.btn-icon-primary.btn-icon-sm {
-  background: $emi-primary !important;
-  border-color: $emi-primary !important;
-  color: $emi-white !important;
+  background: #5a122c !important;
+  border-color: #5a122c !important;
+  color: #ffffff !important;
   transition: all 0.3s ease !important;
 
   .btn-icon__icon,
   svg {
-    color: $emi-white !important;
+    color: #ffffff !important;
     fill: currentColor !important;
   }
 
-  &:hover {
-    background: darken($emi-primary, 10%) !important;
-    border-color: darken($emi-primary, 10%) !important;
-    color: $emi-white !important;
-    transform: translateY(-1px) !important;
-
-    .btn-icon__icon,
-    svg {
-      color: $emi-white !important;
-    }
-  }
-
+  &:hover,
   &:focus {
-    background: $emi-primary !important;
-    border-color: $emi-primary !important;
-    color: $emi-white !important;
-    outline: 2px solid $emi-accent !important;
-    outline-offset: 2px !important;
+    background: #ffd700 !important;
+    border-color: #ffd700 !important;
+    color: #5a122c !important;
 
     .btn-icon__icon,
     svg {
-      color: $emi-white !important;
-    }
-  }
-
-  &:active {
-    background: darken($emi-primary, 15%) !important;
-    border-color: darken($emi-primary, 15%) !important;
-    color: $emi-white !important;
-    transform: translateY(0) !important;
-
-    .btn-icon__icon,
-    svg {
-      color: $emi-white !important;
+      color: #5a122c !important;
     }
   }
 }
@@ -621,30 +608,30 @@ $emi-white: #ffffff;
 // === SOBREESCRIBIR BOTONES ADICIONALES GLOBALMENTE ===
 .btn-tertiary {
   background: transparent !important;
-  border: 1px solid $emi-primary !important;
-  color: $emi-primary !important;
+  border: 1px solid #5a122c !important;
+  color: #5a122c !important;
   transition: all 0.3s ease !important;
 
   &:hover,
   &:focus {
-    background: $emi-primary !important;
-    border-color: $emi-primary !important;
-    color: $emi-white !important;
+    background: #5a122c !important;
+    border-color: #5a122c !important;
+    color: #ffffff !important;
     transform: translateY(-1px) !important;
   }
 
   &:active {
-    background: darken($emi-primary, 10%) !important;
-    border-color: darken($emi-primary, 10%) !important;
+    background: #3a0d1f !important;
+    border-color: #3a0d1f !important;
     transform: translateY(0) !important;
   }
 }
 
 // Botón brand global
 .btn-brand {
-  background: linear-gradient(135deg, $emi-primary 0%, lighten($emi-primary, 15%) 100%) !important;
+  background: #5a122c !important;
   border: none !important;
-  color: $emi-white !important;
+  color: #ffffff !important;
   border-radius: 30px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -660,15 +647,15 @@ $emi-white: #ffffff;
     left: -100% !important;
     width: 100% !important;
     height: 100% !important;
-    background: linear-gradient(90deg, transparent, rgba($emi-white, 0.2), transparent) !important;
+    background: linear-gradient(90deg, transparent, rgba(#ffffff, 0.2), transparent) !important;
     transition: left 0.6s !important;
   }
 
   &:hover {
-    background: linear-gradient(135deg, darken($emi-primary, 5%) 0%, $emi-primary 100%) !important;
+    background: #ffd700 !important;
+    color: #5a122c !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba($emi-primary, 0.4) !important;
-    color: $emi-white !important;
+    box-shadow: 0 8px 25px rgba(#ffd700, 0.4) !important;
     
     &::before {
       left: 100% !important;
@@ -676,15 +663,15 @@ $emi-white: #ffffff;
   }
 
   &:focus {
-    background: linear-gradient(135deg, $emi-primary 0%, lighten($emi-primary, 15%) 100%) !important;
-    outline: 2px solid $emi-accent !important;
+    background: #5a122c !important;
+    outline: 2px solid #ffd700 !important;
     outline-offset: 2px !important;
-    color: $emi-white !important;
+    color: #ffffff !important;
   }
 
   &:active {
     transform: translateY(0) !important;
-    background: linear-gradient(135deg, darken($emi-primary, 10%) 0%, darken($emi-primary, 5%) 100%) !important;
+    background: #3a0d1f !important;
   }
 }
 

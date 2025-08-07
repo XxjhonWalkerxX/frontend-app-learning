@@ -38,10 +38,10 @@ const CompletionDonutChart = ({ intl }) => {
             in order to wrap around the circle once. */}
         <circle className="donut-hole" fill="#fff" cx="21" cy="21" r="15.91549430918954" />
         <g className="donut-chart-text">
-          <text x="50%" y="48%" className="donut-chart-number">
+          <text x="50%" y="50%" className="donut-chart-number">
             {completePercentage}{isLocaleRtl && '\u200f'}%
           </text>
-          <text x="50%" y="55%" className="donut-chart-label">
+          <text x="50%" y="58%" className="donut-chart-label">
             {intl.formatMessage(messages.donutLabel)}
           </text>
         </g>

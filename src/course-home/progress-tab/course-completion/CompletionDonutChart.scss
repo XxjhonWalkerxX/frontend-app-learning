@@ -31,7 +31,7 @@ $emi-white: #ffffff;
   fill: $emi-secondary !important;
   text-transform: uppercase;
   letter-spacing: 1px;
-  dominant-baseline: middle;
+  dominant-baseline: central;
   font-weight: 700;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -45,20 +45,9 @@ $emi-white: #ffffff;
   line-height: 1;
   text-anchor: middle;
   fill: $emi-primary !important;
-  dominant-baseline: middle;
+  dominant-baseline: central;
   font-weight: 900;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  -moz-transform: translateY(-0.4em);
-  -ms-transform: translateY(-0.4em);
-  -webkit-transform: translateY(-0.4em);
-  transform: translateY(-0.4em);
-}
-
-.donut-chart-text {
-  -moz-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
-  -webkit-transform: translateY(0.15em);
-  transform: translateY(0.15em);
 }
 
 .donut-ring, .donut-segment {

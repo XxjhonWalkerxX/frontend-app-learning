@@ -27,7 +27,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
       left: 0;
       width: 80px;
       height: 4px;
-      background: linear-gradient(90deg, $secondary-color 0%, $accent-color 100%);
+      background: $accent-color !important;
       border-radius: 2px;
     }
 
@@ -40,7 +40,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 // === SECCIONES PRINCIPALES ===
 section.text-dark-700,
 .grades.my-4.p-4.rounded.raised-card {
-  background: linear-gradient(135deg, $white 0%, lighten($light-bg, 2%) 100%);
+  background: $white !important;
   border: none;
   border-radius: 20px;
   box-shadow: 0 6px 25px rgba($primary-color, 0.08);
@@ -57,7 +57,7 @@ section.text-dark-700,
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, $secondary-color 0%, $accent-color 50%, $primary-color 100%);
+    background: $accent-color !important;
     z-index: 1;
   }
 
@@ -82,7 +82,7 @@ section.text-dark-700,
 
 // === COURSE COMPLETION SECTION ===
 section.text-dark-700.mb-4.rounded.raised-card.p-4 {
-  background: linear-gradient(135deg, $white 0%, lighten($light-bg, 3%) 100%);
+  background: $white !important;
   border: none;
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba($primary-color, 0.1);
@@ -99,7 +99,7 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(90deg, $secondary-color 0%, $accent-color 50%, $primary-color 100%);
+    background: $accent-color !important;
     z-index: 1;
   }
 
@@ -122,7 +122,7 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
       left: 0;
       width: 60px;
       height: 3px;
-      background: linear-gradient(90deg, $secondary-color, $accent-color);
+      background: $accent-color !important;
       border-radius: 2px;
     }
   }
@@ -359,7 +359,7 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
   box-shadow: 0 4px 15px rgba($primary-color, 0.05);
 
   thead {
-    background: linear-gradient(135deg, $light-bg 0%, lighten($secondary-color, 45%) 100%);
+    background: $light-bg !important;
 
     th {
       border-bottom: 2px solid rgba($secondary-color, 0.1);

@@ -1,39 +1,30 @@
 // === ESTILOS MODERNOS PARA TABS EMI ===
 
-// Variables de color EMI actualizadas
-$emi-primary: #5a122c;        
-$emi-accent: #ffd700;         
-$emi-background: #f8f8f8;     
-$emi-text: #2c1810;          
-$emi-light-wine: #8b2c4a;    
-$emi-white: #ffffff;         
-$emi-beige: #f5f5dc;         
-
 .nav-underline-tabs {
   display: flex;
   gap: 1rem;
   justify-content: center;
   width: 100%;
-  background: #f8f8f8 !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   border: none;
   padding: 1.5rem 2rem;
   box-sizing: border-box;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(#5a122c, 0.15) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   margin-bottom: 2rem;
 }
 
 .nav-underline-tabs .nav-link {
-  background: #ffffff !important;
-  color: #2c1810 !important;
-  border: 1.5px solid #8b2c4a !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  color: #6c757d !important;
+  border: 1.5px solid #e9ecef;
   border-radius: 25px;
   padding: 0.75rem 1.5rem;
   font-weight: 500;
   font-size: 0.95rem;
   margin: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  box-shadow: 0 2px 8px rgba(#5a122c, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   outline: none;
   min-width: 100px;
   text-align: center;
@@ -47,33 +38,31 @@ $emi-beige: #f5f5dc;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #8b2c4a !important;
+    background: linear-gradient(135deg, #a86a2c, #c77834);
     transition: left 0.3s ease;
     z-index: -1;
   }
 }
 
 .nav-underline-tabs .nav-link.active {
-  background: #5a122c !important;
-  color: #ffffff !important;
-  border-color: #5a122c !important;
+  background: linear-gradient(135deg, #a86a2c, #c77834);
+  color: #fff !important;
+  border-color: #a86a2c;
   font-weight: 600;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(#5a122c, 0.4) !important;
+  box-shadow: 0 8px 25px rgba(168, 106, 44, 0.3);
   
   &::before {
     left: 0;
-    background: #ffd700 !important;
   }
 }
 
 .nav-underline-tabs .nav-link:hover,
 .nav-underline-tabs .nav-link:focus {
-  color: #ffffff !important;
-  border-color: #8b2c4a !important;
-  background: #8b2c4a !important;
+  color: #fff !important;
+  border-color: #a86a2c;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(#8b2c4a, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(168, 106, 44, 0.25);
   
   &::before {
     left: 0;

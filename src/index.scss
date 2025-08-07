@@ -16,16 +16,6 @@
 @import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
 
-// === PALETA DE COLORES EMI ===
-$emi-primary: #5a122c !default;        // Vino principal
-$emi-accent: #ffd700 !default;         // Dorado para acentos, botones, títulos
-$emi-cream: #f5f5dc !default;          // Crema claro para acentos suaves
-$emi-background: #f8f8f8 !default;     // Gris claro para fondos
-$emi-beige: #f5f5dc !default;          // Beige para fondos secundarios
-$emi-text: #2c1810 !default;           // Negro/marrón para texto
-$emi-light-wine: #8b2c4a !default;     // Vino más claro para marcos
-$emi-white: #ffffff !default;          // Blanco puro
-
 // --- EMI NAV STYLES ---
 // --- EMI TABS STYLE ---
 
@@ -39,7 +29,7 @@ $emi-white: #ffffff !default;          // Blanco puro
   padding-right: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  background: #f8f8f8 !important;
+  background: #fff;
   z-index: 10;
 }
 
@@ -70,7 +60,7 @@ $emi-white: #ffffff !default;          // Blanco puro
 
 .user-dropdown .dropdown-toggle {
   background: #5a122c !important;
-  color: #ffffff !important;
+  color: #fff !important;
   border: 1px solid #ffd700 !important;
   box-shadow: none !important;
   border-radius: 8px;
@@ -93,7 +83,7 @@ $emi-white: #ffffff !default;          // Blanco puro
 .container-xl .emi-course-org,
 .container-xl .course-info-header .title,
 .container-xl .course-info-header .org {
-  color: #2c1810 !important;
+  color: #fff !important;
   font-weight: 500;
 }
 ////////////////////////////////////////////////
@@ -572,35 +562,58 @@ $emi-white: #ffffff !default;          // Blanco puro
 // === ESTILOS GLOBALES EMI ===
 // Variables globales EMI
 $emi-primary: #5a122c;
-$emi-secondary: #8b2c4a;
+$emi-secondary: #a86a2c;
 $emi-accent: #ffd700;
 $emi-white: #ffffff;
-$emi-background: #f8f8f8;
-$emi-text: #2c1810;
 
 // === SOBREESCRIBIR BOTONES ICON PRIMARY GLOBALMENTE ===
 .btn-icon.btn-icon-primary,
 .btn-icon.btn-icon-primary.btn-icon-sm {
-  background: #5a122c !important;
-  border-color: #5a122c !important;
-  color: #ffffff !important;
+  background: $emi-primary !important;
+  border-color: $emi-primary !important;
+  color: $emi-white !important;
   transition: all 0.3s ease !important;
 
   .btn-icon__icon,
   svg {
-    color: #ffffff !important;
+    color: $emi-white !important;
     fill: currentColor !important;
   }
 
-  &:hover,
-  &:focus {
-    background: #ffd700 !important;
-    border-color: #ffd700 !important;
-    color: #5a122c !important;
+  &:hover {
+    background: darken($emi-primary, 10%) !important;
+    border-color: darken($emi-primary, 10%) !important;
+    color: $emi-white !important;
+    transform: translateY(-1px) !important;
 
     .btn-icon__icon,
     svg {
-      color: #5a122c !important;
+      color: $emi-white !important;
+    }
+  }
+
+  &:focus {
+    background: $emi-primary !important;
+    border-color: $emi-primary !important;
+    color: $emi-white !important;
+    outline: 2px solid $emi-accent !important;
+    outline-offset: 2px !important;
+
+    .btn-icon__icon,
+    svg {
+      color: $emi-white !important;
+    }
+  }
+
+  &:active {
+    background: darken($emi-primary, 15%) !important;
+    border-color: darken($emi-primary, 15%) !important;
+    color: $emi-white !important;
+    transform: translateY(0) !important;
+
+    .btn-icon__icon,
+    svg {
+      color: $emi-white !important;
     }
   }
 }
@@ -608,30 +621,30 @@ $emi-text: #2c1810;
 // === SOBREESCRIBIR BOTONES ADICIONALES GLOBALMENTE ===
 .btn-tertiary {
   background: transparent !important;
-  border: 1px solid #5a122c !important;
-  color: #5a122c !important;
+  border: 1px solid $emi-primary !important;
+  color: $emi-primary !important;
   transition: all 0.3s ease !important;
 
   &:hover,
   &:focus {
-    background: #5a122c !important;
-    border-color: #5a122c !important;
-    color: #ffffff !important;
+    background: $emi-primary !important;
+    border-color: $emi-primary !important;
+    color: $emi-white !important;
     transform: translateY(-1px) !important;
   }
 
   &:active {
-    background: #3a0d1f !important;
-    border-color: #3a0d1f !important;
+    background: darken($emi-primary, 10%) !important;
+    border-color: darken($emi-primary, 10%) !important;
     transform: translateY(0) !important;
   }
 }
 
 // Botón brand global
 .btn-brand {
-  background: #5a122c !important;
+  background: linear-gradient(135deg, $emi-primary 0%, lighten($emi-primary, 15%) 100%) !important;
   border: none !important;
-  color: #ffffff !important;
+  color: $emi-white !important;
   border-radius: 30px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -647,15 +660,15 @@ $emi-text: #2c1810;
     left: -100% !important;
     width: 100% !important;
     height: 100% !important;
-    background: linear-gradient(90deg, transparent, rgba(#ffffff, 0.2), transparent) !important;
+    background: linear-gradient(90deg, transparent, rgba($emi-white, 0.2), transparent) !important;
     transition: left 0.6s !important;
   }
 
   &:hover {
-    background: #ffd700 !important;
-    color: #5a122c !important;
+    background: linear-gradient(135deg, darken($emi-primary, 5%) 0%, $emi-primary 100%) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(#ffd700, 0.4) !important;
+    box-shadow: 0 8px 25px rgba($emi-primary, 0.4) !important;
+    color: $emi-white !important;
     
     &::before {
       left: 100% !important;
@@ -663,15 +676,15 @@ $emi-text: #2c1810;
   }
 
   &:focus {
-    background: #5a122c !important;
-    outline: 2px solid #ffd700 !important;
+    background: linear-gradient(135deg, $emi-primary 0%, lighten($emi-primary, 15%) 100%) !important;
+    outline: 2px solid $emi-accent !important;
     outline-offset: 2px !important;
-    color: #ffffff !important;
+    color: $emi-white !important;
   }
 
   &:active {
     transform: translateY(0) !important;
-    background: #3a0d1f !important;
+    background: linear-gradient(135deg, darken($emi-primary, 10%) 0%, darken($emi-primary, 5%) 100%) !important;
   }
 }
 

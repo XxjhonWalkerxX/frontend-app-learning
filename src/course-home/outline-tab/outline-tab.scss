@@ -13,7 +13,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 
 // === CONTENEDOR PRINCIPAL ===
 .course-outline-tab {
-  background: linear-gradient(135deg, $light-bg 0%, $white 100%);
+  background: $white;
   border-radius: 16px;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -39,7 +39,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 
 // === ALERTAS Y NOTIFICACIONES ===
 .alert-success {
-  background: linear-gradient(135deg, lighten($success-color, 45%) 0%, lighten($success-color, 40%) 100%);
+  background: lighten($success-color, 40%);
   border: 1px solid lighten($success-color, 30%);
   border-radius: 12px;
   padding: 1.5rem;
@@ -88,7 +88,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, $secondary-color 0%, $accent-color 50%, $primary-color 100%);
+    background: $secondary-color;
     z-index: 1;
   }
 
@@ -98,11 +98,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
   }
 
   .pgn__card-header {
-    background: linear-gradient(135deg, 
-      rgba($white, 0.95) 0%, 
-      rgba($light-bg, 0.98) 50%, 
-      rgba($white, 0.95) 100%
-    );
+    background: rgba($white, 0.98);
     backdrop-filter: blur(10px);
     color: $primary-color;
     padding: 2rem;
@@ -113,14 +109,11 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
       font-size: 1.4rem;
       font-weight: 700;
       margin: 0;
-      background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: $primary-color;
     }
 
     .btn-brand {
-      background: linear-gradient(135deg, $secondary-color 0%, lighten($secondary-color, 15%) 100%);
+      background: $secondary-color;
       border: none;
       color: $white;
       border-radius: 30px;
@@ -140,12 +133,12 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba($white, 0.2), transparent);
+        background: rgba($white, 0.2);
         transition: left 0.6s;
       }
 
       &:hover {
-        background: linear-gradient(135deg, darken($secondary-color, 5%) 0%, $secondary-color 100%);
+        background: darken($secondary-color, 5%);
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba($secondary-color, 0.4);
         
@@ -168,7 +161,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
       transform: translateX(-50%);
       width: 60px;
       height: 3px;
-      background: linear-gradient(90deg, $secondary-color, $accent-color);
+      background: $accent-color;
       border-radius: 2px;
     }
   }
@@ -181,7 +174,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, $secondary-color, $accent-color, $primary-color);
+    background: $secondary-color;
     border-radius: 22px;
     z-index: -1;
     opacity: 0;
@@ -260,7 +253,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    background: linear-gradient(135deg, $white 0%, lighten($light-bg, 2%) 100%);
+    background: $white;
 
     // Barra lateral de progreso
     &::before {
@@ -270,7 +263,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
       top: 0;
       bottom: 0;
       width: 4px;
-      background: linear-gradient(180deg, $secondary-color 0%, $accent-color 100%);
+      background: $secondary-color;
       opacity: 0.3;
       transition: all 0.3s ease;
     }
@@ -287,12 +280,12 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 
     &.is-open {
       box-shadow: 0 8px 30px rgba($primary-color, 0.15);
-      background: linear-gradient(135deg, $white 0%, lighten($accent-color, 48%) 100%);
+      background: lighten($accent-color, 48%);
 
       &::before {
         opacity: 1;
         width: 6px;
-        background: linear-gradient(180deg, $accent-color 0%, $secondary-color 100%);
+        background: $accent-color;
       }
     }
 
@@ -304,10 +297,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
       position: relative;
 
       &:hover {
-        background: linear-gradient(135deg, 
-          rgba($light-bg, 0.5) 0%, 
-          rgba($secondary-color, 0.08) 100%
-        );
+        background: rgba($light-bg, 0.5);
       }
 
       // Contenedor principal del trigger
@@ -322,10 +312,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
             height: 32px !important;
             padding: 6px;
             border-radius: 50%;
-            background: linear-gradient(135deg, 
-              rgba($secondary-color, 0.1) 0%, 
-              rgba($accent-color, 0.1) 100%
-            );
+            background: rgba($secondary-color, 0.1);
             border: 2px solid rgba($secondary-color, 0.2);
             transition: all 0.3s ease;
 
@@ -335,10 +322,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 
             &.text-success {
               color: $success-color !important;
-              background: linear-gradient(135deg, 
-                rgba($success-color, 0.1) 0%, 
-                rgba($success-color, 0.05) 100%
-              );
+              background: rgba($success-color, 0.1);
               border-color: rgba($success-color, 0.3);
             }
           }
@@ -366,7 +350,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
                 transform: translateY(-50%);
                 width: 30px;
                 height: 30px;
-                background: linear-gradient(135deg, $secondary-color 0%, $accent-color 100%);
+                background: $secondary-color;
                 color: $white;
                 border-radius: 50%;
                 display: flex;
@@ -403,7 +387,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
     }
 
     .collapsible-body {
-      background: linear-gradient(135deg, $white 0%, lighten($light-bg, 3%) 100%);
+      background: $white;
       padding: 1.5rem 2rem;
       border-top: 1px solid rgba($secondary-color, 0.1);
       position: relative;
@@ -415,11 +399,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
         left: 2rem;
         right: 2rem;
         height: 1px;
-        background: linear-gradient(90deg, 
-          transparent 0%, 
-          rgba($secondary-color, 0.2) 50%, 
-          transparent 100%
-        );
+        background: rgba($secondary-color, 0.2);
       }
 
       .row {
@@ -466,10 +446,7 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
         }
 
         .text-gray-500 {
-          background: linear-gradient(135deg, 
-            lighten($secondary-color, 42%) 0%, 
-            lighten($accent-color, 45%) 100%
-          ) !important;
+          background: lighten($secondary-color, 42%) !important;
           color: $secondary-color !important;
           padding: 0.4rem 0.9rem !important;
           border-radius: 20px !important;
@@ -566,149 +543,4 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 .btn:focus {
   outline: 2px solid $accent-color;
   outline-offset: 2px;
-}
-
-// === SOBREESCRIBIR BOTONES ICON PRIMARY GLOBALMENTE ===
-// Selector global para sobreescribir botones de iconos importados en toda la aplicación
-.btn-icon.btn-icon-primary,
-.btn-icon.btn-icon-primary.btn-icon-sm {
-  background: $secondary-color !important; // Sobreescribir background importado globalmente
-  border-color: $secondary-color !important;
-  color: $white !important; // Color del ícono (currentColor del SVG)
-  transition: all 0.3s ease !important;
-
-  // Asegurar que el ícono SVG use el color correcto
-  .btn-icon__icon,
-  svg {
-    color: $white !important;
-    fill: currentColor !important;
-  }
-
-  &:hover {
-    background: darken($secondary-color, 10%) !important;
-    border-color: darken($secondary-color, 10%) !important;
-    color: $white !important; // Mantener color blanco en hover
-    transform: translateY(-1px) !important;
-
-    .btn-icon__icon,
-    svg {
-      color: $white !important;
-    }
-  }
-
-  &:focus {
-    background: $secondary-color !important;
-    border-color: $secondary-color !important;
-    color: $white !important; // Mantener color blanco en focus
-    outline: 2px solid $accent-color !important;
-    outline-offset: 2px !important;
-
-    .btn-icon__icon,
-    svg {
-      color: $white !important;
-    }
-  }
-
-  &:active {
-    background: darken($secondary-color, 15%) !important;
-    border-color: darken($secondary-color, 15%) !important;
-    color: $white !important; // Mantener color blanco en active
-    transform: translateY(0) !important;
-
-    .btn-icon__icon,
-    svg {
-      color: $white !important;
-    }
-  }
-}
-
-// === SOBREESCRIBIR BOTONES ADICIONALES GLOBALMENTE ===
-// Botón tertiary (Dismiss)
-.btn-tertiary {
-  background: transparent !important;
-  border: 1px solid $secondary-color !important;
-  color: $secondary-color !important;
-  transition: all 0.3s ease !important;
-
-  &:hover,
-  &:focus {
-    background: $secondary-color !important;
-    border-color: $secondary-color !important;
-    color: $white !important;
-    transform: translateY(-1px) !important;
-  }
-
-  &:active {
-    background: darken($secondary-color, 10%) !important;
-    border-color: darken($secondary-color, 10%) !important;
-    transform: translateY(0) !important;
-  }
-}
-
-// Botón brand global (Start course)
-.btn-brand {
-  background: linear-gradient(135deg, $secondary-color 0%, lighten($secondary-color, 15%) 100%) !important;
-  border: none !important;
-  color: $white !important;
-  border-radius: 30px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  position: relative !important;
-  overflow: hidden !important;
-  
-  &::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: -100% !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: linear-gradient(90deg, transparent, rgba($white, 0.2), transparent) !important;
-    transition: left 0.6s !important;
-  }
-
-  &:hover {
-    background: linear-gradient(135deg, darken($secondary-color, 5%) 0%, $secondary-color 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba($secondary-color, 0.4) !important;
-    color: $white !important;
-    
-    &::before {
-      left: 100% !important;
-    }
-  }
-
-  &:focus {
-    background: linear-gradient(135deg, $secondary-color 0%, lighten($secondary-color, 15%) 100%) !important;
-    outline: 2px solid $accent-color !important;
-    outline-offset: 2px !important;
-    color: $white !important;
-  }
-
-  &:active {
-    transform: translateY(0) !important;
-    background: linear-gradient(135deg, darken($secondary-color, 10%) 0%, darken($secondary-color, 5%) 100%) !important;
-  }
-}
-
-// === SOBREESCRIBIR ICONOS SVG GLOBALMENTE ===
-// Iconos con clases de color de texto
-.text-gray-400,
-.text-gray-500 {
-  &.svg-inline--fa,
-  svg {
-    color: $secondary-color !important;
-    fill: currentColor !important;
-  }
-}
-
-// Iconos de éxito
-.text-success {
-  &.svg-inline--fa,
-  svg {
-    color: $success-color !important;
-    fill: currentColor !important;
-  }
 }

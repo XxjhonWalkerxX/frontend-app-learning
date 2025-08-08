@@ -5,7 +5,7 @@ $primary-color: #5a122c;
 $secondary-color: #5a122c;
 $accent-color: #e6dbc7;
 $success-color: #28a745;
-$info-color: #17a2b8;
+$info-color: #004d4d;
 $light-bg: #f8f9fa;
 $white: #ffffff;
 $shadow-light: rgba(0, 0, 0, 0.1);
@@ -454,20 +454,138 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
 
 // Banner de éxito
 .row.w-100.m-0.px-4.py-3.py-md-4.rounded-bottom.bg-success-100 {
-  background: linear-gradient(135deg, lighten($success-color, 45%) 0%, lighten($success-color, 42%) 100%) !important;
-  border-top: 2px solid rgba($success-color, 0.2);
+  background: lighten($success-color, 45%) !important;
+  border-top: 3px solid $success-color !important;
+  border-radius: 0 0 20px 20px !important;
+  padding: 2rem !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Borde superior con gradiente sutil
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $success-color;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: lighten($success-color, 42%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($success-color, 0.2);
+
+    &::before {
+      height: 4px;
+      background: darken($success-color, 5%);
+    }
+  }
 
   .pgn__icon.text-success-300 {
     color: $success-color !important;
     background: $white;
     border-radius: 50%;
-    padding: 4px;
-    box-shadow: 0 2px 8px rgba($success-color, 0.2);
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba($success-color, 0.25);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba($success-color, 0.35);
+    }
   }
 
   .h4 {
+    color: darken($success-color, 15%);
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+  }
+
+  // Texto adicional
+  .small,
+  p {
     color: darken($success-color, 10%);
-    font-weight: 700;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+// Banner de advertencia/warning - para cuando no está pasando
+.row.w-100.m-0.px-4.py-3.py-md-4.rounded-bottom.bg-warning-100 {
+  background: lighten($info-color, 50%) !important;
+  border-top: 3px solid $info-color !important;
+  border-radius: 0 0 20px 20px !important;
+  padding: 2rem !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Borde superior con efecto de atención
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $info-color;
+    transition: all 0.3s ease;
+    animation: pulseWarning 2s infinite;
+  }
+
+  &:hover {
+    background: lighten($info-color, 47%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($info-color, 0.25);
+
+    &::before {
+      height: 4px;
+      background: darken($info-color, 10%);
+    }
+  }
+
+  .pgn__icon {
+    color: darken($info-color, 10%) !important;
+    background: $white;
+    border-radius: 50%;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba($info-color, 0.25);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba($info-color, 0.35);
+    }
+  }
+
+  .h4 {
+    color: darken($info-color, 15%);
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+  }
+
+  // Texto adicional
+  .small,
+  p {
+    color: darken($info-color, 10%);
+    font-weight: 600;
+    margin: 0;
   }
 }
 
@@ -530,19 +648,98 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
   }
 }
 
-// Footer de tabla
+// Footer de tabla - variante éxito
 .pgn__data-table-footer {
-  background: linear-gradient(135deg, lighten($primary-color, 45%) 0%, lighten($secondary-color, 48%) 100%) !important;
-  border-top: 2px solid rgba($primary-color, 0.1) !important;
-  padding: 1rem;
+  background: lighten($success-color, 45%) !important;
+  border-top: 3px solid $success-color !important;
+  border-radius: 0 0 16px 16px !important;
+  padding: 1.5rem !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Línea superior decorativa
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: $success-color;
+    border-radius: 0 0 8px 8px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: lighten($success-color, 42%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba($success-color, 0.2);
+
+    &::before {
+      left: 15%;
+      right: 15%;
+      background: darken($success-color, 5%);
+    }
+  }
 
   .small {
-    color: $primary-color;
-    font-weight: 600;
+    color: darken($success-color, 15%);
+    font-weight: 700;
+    font-size: 0.95rem;
 
     &.font-weight-bold {
-      font-weight: 700;
-      color: darken($primary-color, 5%);
+      font-weight: 900;
+      color: darken($success-color, 20%);
+      font-size: 1rem;
+    }
+  }
+}
+
+// Footer de tabla - variante warning (para border-primary + bg-warning-100)
+.pgn__data-table-footer.border-top.border-primary.bg-warning-100,
+.pgn__data-table-footer.bg-warning-100 {
+  background: lighten($info-color, 50%) !important;
+  border-top: 3px solid $info-color !important;
+  border-radius: 0 0 16px 16px !important;
+  padding: 1.5rem !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Línea superior decorativa con efecto de atención
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: $info-color;
+    border-radius: 0 0 8px 8px;
+    transition: all 0.3s ease;
+    animation: pulseWarningFooter 3s infinite;
+  }
+
+  &:hover {
+    background: lighten($info-color, 47%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba($info-color, 0.25);
+
+    &::before {
+      left: 15%;
+      right: 15%;
+      background: darken($info-color, 10%);
+    }
+  }
+
+  .small {
+    color: darken($info-color, 15%);
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    &.font-weight-bold {
+      font-weight: 900;
+      color: darken($info-color, 20%);
+      font-size: 1rem;
     }
   }
 }
@@ -747,6 +944,36 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
   100% {
     opacity: 1;
     transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes pulseWarning {
+  0% {
+    background: $info-color;
+    box-shadow: 0 0 10px rgba($info-color, 0.3);
+  }
+  50% {
+    background: darken($info-color, 10%);
+    box-shadow: 0 0 20px rgba($info-color, 0.5);
+  }
+  100% {
+    background: $info-color;
+    box-shadow: 0 0 10px rgba($info-color, 0.3);
+  }
+}
+
+@keyframes pulseWarningFooter {
+  0% {
+    background: $info-color;
+    opacity: 1;
+  }
+  50% {
+    background: darken($info-color, 15%);
+    opacity: 0.8;
+  }
+  100% {
+    background: $info-color;
+    opacity: 1;
   }
 }
 

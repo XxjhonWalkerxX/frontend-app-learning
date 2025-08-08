@@ -1056,3 +1056,73 @@ section.text-dark-700,
   border-color: $info-color !important;
   background-color: lighten($info-color, 50%) !important;
 }
+
+// === OVERRIDE MÁXIMO - ÚLTIMA LÍNEA DE DEFENSA ===
+// Especificidad extrema para casos difíciles de Bootstrap
+.pgn__data-table-footer.pgn__data-table-footer.border-top.border-primary.bg-warning-100,
+.pgn__data-table-footer.pgn__data-table-footer.bg-warning-100.border-primary,
+[class*="pgn__data-table-footer"][class*="border-primary"][class*="bg-warning"],
+.pgn__data-table .pgn__data-table-footer[class*="border-primary"],
+.pgn__data-table .pgn__data-table-footer[class*="bg-warning"] {
+  background-color: lighten($info-color, 50%) !important;
+  background: lighten($info-color, 50%) !important;
+  border-top: 3px solid $info-color !important;
+  border-left: none !important;
+  border-right: none !important;  
+  border-bottom: none !important;
+  border-color: $info-color !important;
+  border-top-color: $info-color !important;
+}
+
+// Texto específico con máxima especificidad
+.pgn__data-table-footer.pgn__data-table-footer .small,
+[class*="pgn__data-table-footer"][class*="border-primary"] .small,
+[class*="pgn__data-table-footer"][class*="bg-warning"] .small {
+  color: darken($info-color, 15%) !important;
+}
+
+// Override para elementos específicos con atributos de clase
+.pgn__data-table-footer[class~="border-primary"][class~="bg-warning-100"] {
+  background: lighten($info-color, 50%) !important;
+  border-color: $info-color !important;
+}
+
+// Último recurso - usar selectores universales con especificidad alta
+* .pgn__data-table-footer.border-primary.bg-warning-100,
+* .pgn__data-table-footer.bg-warning-100.border-primary {
+  background: lighten($info-color, 50%) !important;
+  border-top-color: $info-color !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+// === REGLAS ESPECÍFICAS PARA CASOS EXTREMOS ===
+// Si todo falla, estas reglas tienen especificidad máxima
+html body .pgn__data-table-footer.border-primary.bg-warning-100,
+html body .pgn__data-table-footer.bg-warning-100.border-primary {
+  background-color: #f5f0e8 !important; // Color calculado de lighten($info-color, 50%)
+  background: #f5f0e8 !important;
+  border-top: 3px solid #a67b5b !important; // $info-color directo
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+html body .pgn__data-table-footer.border-primary.bg-warning-100 .small,
+html body .pgn__data-table-footer.bg-warning-100.border-primary .small {
+  color: #7d5c42 !important; // Color calculado de darken($info-color, 15%)
+}
+
+// Aplicar estilos con CSS variables como respaldo
+.pgn__data-table-footer.border-primary.bg-warning-100,
+.pgn__data-table-footer.bg-warning-100.border-primary {
+  --emi-bg-color: #f5f0e8;
+  --emi-border-color: #a67b5b;
+  --emi-text-color: #7d5c42;
+  
+  background-color: var(--emi-bg-color) !important;
+  background: var(--emi-bg-color) !important;
+  border-top-color: var(--emi-border-color) !important;
+  color: var(--emi-text-color) !important;
+}

@@ -760,6 +760,11 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
 // === RELATED LINKS SIDEBAR ===
 .col-12.col-md-4.p-0.px-md-4 {
   section {
+    // Ocultar completamente el contenedor de Related Links
+    &.mb-4.x-small {
+      display: none !important;
+    }
+
     background: linear-gradient(135deg, $white 0%, lighten($light-bg, 3%) 100%);
     border-radius: 16px;
     padding: 1.5rem;

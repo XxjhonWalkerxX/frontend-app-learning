@@ -50,7 +50,7 @@ const ProgressTab = () => {
         {/* Side panel */}
         <div className="col-12 col-md-4 p-0 px-md-4">
           {wideScreen && <CertificateStatus />}
-          <RelatedLinks />
+          {/* <RelatedLinks /> - Comentado para ocultar Related Links */}
         </div>
       </div>
     </>

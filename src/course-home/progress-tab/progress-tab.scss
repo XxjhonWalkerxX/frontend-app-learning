@@ -42,64 +42,68 @@ section.text-dark-700,
 .grades.my-4.p-4.rounded.raised-card {
   background: $white !important;
   border: none;
-  border-radius: 20px;
-  box-shadow: 0 6px 25px rgba($primary-color, 0.08);
-  margin-bottom: 2rem;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  position: relative;
-
-  &:hover {
-    box-shadow: 0 8px 35px rgba($primary-color, 0.12);
-    transform: translateY(-2px);
-  }
-
-  h2, h3.h4 {
-    color: $primary-color;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    position: relative;
-  }
-
-  p.small {
-    color: lighten($primary-color, 20%);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-}
-
-// === COURSE COMPLETION SECTION ===
-section.text-dark-700.mb-4.rounded.raised-card.p-4 {
-  background: $white !important;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba($primary-color, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba($primary-color, 0.06), 
+              0 4px 16px rgba($primary-color, 0.04),
+              0 2px 8px rgba($primary-color, 0.02);
   margin-bottom: 2rem;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  backdrop-filter: blur(20px);
 
-  &:hover {
-    box-shadow: 0 12px 40px rgba($primary-color, 0.15);
-    transform: translateY(-3px);
+  // Borde sutil en la parte superior
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $secondary-color;
+    opacity: 0.8;
+    transition: all 0.3s ease;
   }
 
-  h2 {
+  &:hover {
+    box-shadow: 0 12px 48px rgba($primary-color, 0.1), 
+                0 8px 24px rgba($primary-color, 0.08),
+                0 4px 12px rgba($primary-color, 0.06);
+    transform: translateY(-4px) scale(1.01);
+
+    &::before {
+      height: 4px;
+      background: $accent-color;
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1.005);
+  }
+
+  h2, h3.h4 {
     color: $primary-color;
     font-weight: 800;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: -6px;
       left: 0;
-      width: 60px;
+      width: 50px;
       height: 3px;
-      background: $accent-color !important;
+      background: $accent-color;
       border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    &:hover::after {
+      width: 80px;
     }
   }
 
@@ -108,6 +112,99 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
     font-size: 0.95rem;
     line-height: 1.6;
     font-weight: 500;
+    margin-bottom: 1rem;
+  }
+}
+
+// === COURSE COMPLETION SECTION ===
+section.text-dark-700.mb-4.rounded.raised-card.p-4 {
+  background: $white !important;
+  border: none;
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba($primary-color, 0.08), 
+              0 6px 20px rgba($primary-color, 0.06),
+              0 3px 10px rgba($primary-color, 0.04);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  padding: 2.5rem !important;
+
+  // Efecto de "glow" sutil en los bordes
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: $white;
+    border-radius: 29px;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    box-shadow: 0 0 20px rgba($accent-color, 0.3);
+  }
+
+  &:hover {
+    box-shadow: 0 16px 56px rgba($primary-color, 0.12), 
+                0 8px 28px rgba($primary-color, 0.1),
+                0 4px 14px rgba($primary-color, 0.08);
+    transform: translateY(-6px) scale(1.02);
+
+    &::after {
+      opacity: 0.5;
+    }
+  }
+
+  &:active {
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  h2 {
+    color: $primary-color;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    letter-spacing: -1px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 60%;
+      background: $accent-color;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: $accent-color !important;
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+
+    &:hover::after {
+      width: 120px;
+    }
+  }
+
+  p.small {
+    color: lighten($primary-color, 12%);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
   }
 
   // Contenedor del donut mejorado
@@ -116,77 +213,123 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
+    position: relative;
+
+    // Efecto de resplandor de fondo
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba($accent-color, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      transition: all 0.4s ease;
+    }
+
+    &:hover::before {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba($accent-color, 0.15) 0%, transparent 70%);
+    }
 
     // Contenedor del SVG mejorado
     .donut {
-      filter: drop-shadow(0 8px 20px rgba($primary-color, 0.15));
-      transition: all 0.3s ease;
-      max-width: 200px !important;
+      filter: drop-shadow(0 12px 32px rgba($primary-color, 0.15));
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 220px !important;
+      position: relative;
+      z-index: 1;
 
       &:hover {
-        filter: drop-shadow(0 12px 25px rgba($primary-color, 0.2));
-        transform: scale(1.05);
+        filter: drop-shadow(0 16px 40px rgba($primary-color, 0.2));
+        transform: scale(1.08) rotate(2deg);
+      }
+
+      &:active {
+        transform: scale(1.05) rotate(1deg);
       }
 
       // Hole del donut con borde sutil
       .donut-hole {
         fill: $white;
-        filter: drop-shadow(0 2px 8px rgba($primary-color, 0.05));
+        filter: drop-shadow(0 4px 12px rgba($primary-color, 0.1));
+        transition: all 0.3s ease;
       }
 
       // Texto del número
       .donut-chart-number {
         fill: $primary-color;
-        font-weight: 800;
-        font-size: 0.7rem;
+        font-weight: 900;
+        font-size: 0.8rem;
         font-family: $font-family-sans-serif;
+        transition: all 0.3s ease;
       }
 
       // Texto del label
       .donut-chart-label {
         fill: $secondary-color;
-        font-weight: 700;
-        font-size: 0.28rem;
+        font-weight: 800;
+        font-size: 0.32rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.2px;
+        transition: all 0.3s ease;
       }
 
       // Segmentos del donut
       .donut-segment,
       .donut-ring {
-        stroke-width: 10px;
-        transition: all 0.3s ease;
+        stroke-width: 12px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         &.complete-stroke {
           stroke: $secondary-color;
-          filter: drop-shadow(0 3px 6px rgba($secondary-color, 0.3));
+          filter: drop-shadow(0 4px 12px rgba($secondary-color, 0.35));
         }
 
         &.incomplete-stroke {
-          stroke: lighten($light-bg, 5%);
-          opacity: 0.7;
+          stroke: lighten($light-bg, 3%);
+          opacity: 0.6;
         }
 
         &.locked-stroke {
           stroke: $primary-color;
-          filter: drop-shadow(0 3px 6px rgba($primary-color, 0.3));
+          filter: drop-shadow(0 4px 12px rgba($primary-color, 0.35));
         }
       }
 
       // Grupos de segmentos
       .donut-segment-group {
+        transition: all 0.3s ease;
+
         &:hover {
           .donut-segment,
           .donut-ring {
-            stroke-width: 12px;
+            stroke-width: 16px;
+            filter: brightness(1.1);
           }
         }
 
         &:focus {
-          outline: 2px solid $accent-color;
-          outline-offset: 4px;
+          outline: 3px solid $accent-color;
+          outline-offset: 8px;
           border-radius: 50%;
+        }
+      }
+
+      &:hover {
+        .donut-chart-number {
+          font-size: 0.85rem;
+          fill: darken($primary-color, 5%);
+        }
+
+        .donut-chart-label {
+          font-size: 0.35rem;
+          fill: darken($secondary-color, 10%);
         }
       }
     }
@@ -538,24 +681,116 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
 
 // === ANIMACIONES ===
 @keyframes fadeInProgress {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px) scale(0.95);
+    filter: blur(4px);
   }
-  to {
+  50% {
+    opacity: 0.6;
+    transform: translateY(20px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba($accent-color, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba($accent-color, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba($accent-color, 0.3);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(6deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(-2deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 }
 
 // Aplicar animaciones a las secciones principales
 section.text-dark-700,
 .grades.my-4.p-4.rounded.raised-card {
-  animation: fadeInProgress 0.6s ease-out;
+  animation: fadeInProgress 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// Animación escalonada para múltiples secciones
-.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(1) { animation-delay: 0.1s; }
-.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(2) { animation-delay: 0.2s; }
-.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(3) { animation-delay: 0.3s; }
-.row.w-100.m-0 > .col-12:nth-child(1) .grades { animation-delay: 0.4s; }
+// Animación escalonada para múltiples secciones con mejores delays
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(1) { 
+  animation: slideInFromLeft 0.8s ease-out;
+  animation-delay: 0.1s; 
+  animation-fill-mode: both;
+}
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(2) { 
+  animation: fadeInProgress 0.8s ease-out;
+  animation-delay: 0.3s; 
+  animation-fill-mode: both;
+}
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(3) { 
+  animation: slideInFromLeft 0.8s ease-out;
+  animation-delay: 0.5s; 
+  animation-fill-mode: both;
+}
+.row.w-100.m-0 > .col-12:nth-child(1) .grades { 
+  animation: slideInFromRight 0.8s ease-out;
+  animation-delay: 0.7s; 
+  animation-fill-mode: both;
+}
+
+// Animación para el donut chart
+.donut {
+  animation: bounceIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.9s;
+  animation-fill-mode: both;
+}
+
+// Animación para los elementos de la sidebar
+.col-12.col-md-4.p-0.px-md-4 section {
+  animation: slideInFromRight 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.col-12.col-md-4.p-0.px-md-4 section:nth-child(1) { animation-delay: 0.4s; }
+.col-12.col-md-4.p-0.px-md-4 section:nth-child(2) { animation-delay: 0.6s; }
+.col-12.col-md-4.p-0.px-md-4 section:nth-child(3) { animation-delay: 0.8s; }

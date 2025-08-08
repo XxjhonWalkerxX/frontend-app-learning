@@ -14,14 +14,51 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 // === CONTENEDOR PRINCIPAL ===
 .course-outline-tab {
   background: $white;
-  border-radius: 16px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 20px $shadow-light;
+  border-radius: 28px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 40px rgba($primary-color, 0.08), 
+              0 6px 20px rgba($primary-color, 0.06),
+              0 3px 10px rgba($primary-color, 0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  backdrop-filter: blur(20px);
+
+  // Borde superior elegante
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $secondary-color;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border-radius: 28px 28px 0 0;
+  }
+
+  &:hover {
+    box-shadow: 0 16px 56px rgba($primary-color, 0.12), 
+                0 8px 28px rgba($primary-color, 0.1),
+                0 4px 14px rgba($primary-color, 0.08);
+    transform: translateY(-6px) scale(1.01);
+
+    &::before {
+      height: 5px;
+      background: $accent-color;
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(-3px) scale(1.005);
+  }
 
   // Columna principal del contenido
   .col-md-8 {
-    padding-right: 2rem;
+    padding-right: 2.5rem;
+    transition: all 0.3s ease;
 
     @media (max-width: 768px) {
       padding-right: 0;
@@ -31,40 +68,95 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 
   // Columna lateral
   .col-md-4 {
+    transition: all 0.3s ease;
+
     @media (max-width: 768px) {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
   }
 }
 
 // === ALERTAS Y NOTIFICACIONES ===
 .alert-success {
-  background: lighten($success-color, 40%);
-  border: 1px solid lighten($success-color, 30%);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 3px 12px rgba($success-color, 0.2);
+  background: lighten($success-color, 42%);
+  border: 2px solid lighten($success-color, 30%);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba($success-color, 0.15), 
+              0 4px 16px rgba($success-color, 0.1);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Borde lateral de énfasis
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: $success-color;
+    border-radius: 20px 0 0 20px;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba($success-color, 0.2), 
+                0 6px 24px rgba($success-color, 0.15);
+
+    &::before {
+      width: 8px;
+    }
+  }
 
   .alert-heading {
-    color: darken($success-color, 10%);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    color: darken($success-color, 15%);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.3px;
   }
 
   .btn-primary {
     background: $success-color;
     border-color: $success-color;
-    border-radius: 24px;
-    padding: 0.75rem 2rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    border-radius: 30px;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    // Efecto shimmer
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba($white, 0.3), transparent);
+      transition: left 0.6s;
+    }
 
     &:hover {
       background: darken($success-color, 10%);
       border-color: darken($success-color, 10%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba($success-color, 0.3);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba($success-color, 0.4);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(1.02);
     }
   }
 }
@@ -72,97 +164,179 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
 // === TARJETA DE PROGRESO ===
 .pgn__card {
   border: none;
-  border-radius: 20px;
-  box-shadow: 0 6px 30px rgba($primary-color, 0.12);
-  margin-bottom: 1.5rem;
+  border-radius: 28px;
+  box-shadow: 0 10px 40px rgba($primary-color, 0.1), 
+              0 6px 20px rgba($primary-color, 0.08),
+              0 3px 10px rgba($primary-color, 0.06);
+  margin-bottom: 2rem;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   background: $white;
   
-  // Efecto de borde superior colorido
+  // Borde superior vibrante
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 5px;
     background: $secondary-color;
-    z-index: 1;
+    z-index: 2;
+    transition: all 0.4s ease;
+    border-radius: 28px 28px 0 0;
+  }
+
+  // Efecto glow sutil
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: $white;
+    border-radius: 30px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    box-shadow: 0 0 30px rgba($accent-color, 0.4);
   }
 
   &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 60px rgba($primary-color, 0.15), 
+                0 10px 30px rgba($primary-color, 0.12),
+                0 5px 15px rgba($primary-color, 0.1);
+
+    &::before {
+      height: 6px;
+      background: $accent-color;
+      box-shadow: 0 2px 8px rgba($accent-color, 0.5);
+    }
+
+    &::after {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 12px 40px rgba($primary-color, 0.18);
   }
 
   .pgn__card-header {
     background: rgba($white, 0.98);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     color: $primary-color;
-    padding: 2rem;
-    border-bottom: 1px solid rgba($secondary-color, 0.1);
+    padding: 2.5rem;
+    border-bottom: 2px solid rgba($secondary-color, 0.1);
     position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($white, 1);
+      border-bottom-color: rgba($accent-color, 0.3);
+    }
 
     .pgn__card-header-title-md {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: 900;
       margin: 0;
       color: $primary-color;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: darken($primary-color, 5%);
+        transform: translateX(4px);
+      }
     }
 
     .btn-brand {
       background: $secondary-color;
       border: none;
       color: $white;
-      border-radius: 30px;
-      padding: 0.9rem 2.5rem;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
+      border-radius: 35px;
+      padding: 1.2rem 3rem;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 6px 20px rgba($secondary-color, 0.3);
       
+      // Efecto shimmer mejorado
       &::before {
         content: '';
         position: absolute;
         top: 0;
-        left: -100%;
-        width: 100%;
+        left: -150%;
+        width: 150%;
         height: 100%;
-        background: rgba($white, 0.2);
-        transition: left 0.6s;
+        background: linear-gradient(90deg, transparent, rgba($white, 0.4), rgba($white, 0.6), rgba($white, 0.4), transparent);
+        transition: left 0.8s;
+        transform: skewX(-25deg);
+      }
+
+      // Efecto de resplandor
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba($white, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.6s;
       }
 
       &:hover {
-        background: darken($secondary-color, 5%);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba($secondary-color, 0.4);
+        background: darken($secondary-color, 8%);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 12px 35px rgba($secondary-color, 0.5);
         
         &::before {
-          left: 100%;
+          left: 150%;
+        }
+
+        &::after {
+          width: 300px;
+          height: 300px;
         }
       }
 
       &:active {
-        transform: translateY(0);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 25px rgba($secondary-color, 0.4);
       }
     }
 
-    // Decoración adicional
+    // Decoración mejorada
     &::after {
       content: '';
       position: absolute;
-      bottom: -1px;
+      bottom: -2px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
+      width: 80px;
+      height: 4px;
       background: $accent-color;
       border-radius: 2px;
+      transition: all 0.4s ease;
+      box-shadow: 0 2px 8px rgba($accent-color, 0.4);
+    }
+
+    &:hover::after {
+      width: 120px;
+      height: 5px;
+      bottom: -3px;
+      box-shadow: 0 4px 12px rgba($accent-color, 0.6);
     }
   }
 
@@ -471,28 +645,126 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
   // Counter para numeración automática
   counter-reset: module-counter;
 
-  // Animación de entrada escalonada
+  // Animación de entrada escalonada mejorada
   li {
     opacity: 0;
-    animation: slideInModule 0.6s ease-out forwards;
+    animation: slideInModule 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
-    @for $i from 1 through 10 {
+    @for $i from 1 through 15 {
       &:nth-child(#{$i}) {
-        animation-delay: #{($i - 1) * 0.1}s;
+        animation-delay: #{0.6 + ($i - 1) * 0.15}s;
+      }
+    }
+
+    // Efecto hover mejorado para los items
+    &:hover {
+      .collapsible-card-lg {
+        transform: translateY(-3px) scale(1.02);
+        
+        &::before {
+          width: 8px;
+          opacity: 1;
+          background: $accent-color;
+        }
       }
     }
   }
 }
 
 @keyframes slideInModule {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(20px) translateX(-10px);
+    transform: translateY(40px) translateX(-20px) scale(0.95);
+    filter: blur(4px);
   }
-  to {
+  50% {
+    opacity: 0.6;
+    transform: translateY(20px) translateX(-10px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
     opacity: 1;
-    transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0) scale(1);
+    filter: blur(0);
   }
+}
+
+@keyframes cardFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.8) rotate(3deg);
+    box-shadow: none;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(30px) scale(0.9) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    box-shadow: 0 10px 40px rgba($primary-color, 0.1);
+  }
+}
+
+@keyframes expandCollapse {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(0.9);
+  }
+  100% {
+    max-height: 1000px;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pulseAccent {
+  0% {
+    background: $accent-color;
+    box-shadow: 0 0 10px rgba($accent-color, 0.3);
+  }
+  50% {
+    background: lighten($accent-color, 10%);
+    box-shadow: 0 0 20px rgba($accent-color, 0.6);
+  }
+  100% {
+    background: $accent-color;
+    box-shadow: 0 0 10px rgba($accent-color, 0.3);
+  }
+}
+
+// === ANIMACIONES APLICADAS ===
+
+// Animación principal del contenedor
+.course-outline-tab {
+  animation: cardFloatIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+// Animación de la tarjeta de progreso
+.pgn__card {
+  animation: cardFloatIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+// Animación para alertas
+.alert-success {
+  animation: slideInModule 0.7s ease-out;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+// Animación del botón expand
+.btn-outline-primary {
+  animation: slideInModule 0.5s ease-out;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
 }
 
 // === RESPONSIVE IMPROVEMENTS ===
@@ -518,29 +790,108 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
   }
 }
 
-// === ANIMACIONES ===
+// === ANIMACIONES ADICIONALES ===
 @keyframes fadeInUp {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.course-outline-tab > * {
-  animation: fadeInUp 0.6s ease-out;
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(6deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(-2deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
-// === MEJORAS DE ACCESIBILIDAD ===
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+// Aplicar animaciones a elementos específicos
+.course-outline-tab > * {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+// Animación escalonada para columnas
+.course-outline-tab .col-md-8 {
+  animation-delay: 0.2s;
+}
+
+.course-outline-tab .col-md-4 {
+  animation-delay: 0.4s;
+}
+
+// Animación para botones con efecto shimmer en hover
+.btn-brand:hover {
+  animation: shimmer 1.5s infinite;
+  background-image: linear-gradient(
+    90deg,
+    $secondary-color 0%,
+    lighten($secondary-color, 10%) 50%,
+    $secondary-color 100%
+  );
+  background-size: 1000px 100%;
+}
+
+// === MEJORAS DE ACCESIBILIDAD CON ANIMACIONES ===
 .collapsible-trigger:focus {
-  outline: 2px solid $accent-color;
-  outline-offset: 2px;
+  outline: 3px solid $accent-color;
+  outline-offset: 3px;
+  animation: pulseAccent 2s infinite;
 }
 
 .btn:focus {
-  outline: 2px solid $accent-color;
-  outline-offset: 2px;
+  outline: 3px solid $accent-color;
+  outline-offset: 3px;
+  animation: pulseAccent 2s infinite;
+}
+
+// Animación para elementos expandibles
+.collapsible-body {
+  animation: expandCollapse 0.5s ease-out;
+  transform-origin: top;
+}
+
+// Efecto de micro-interacción en links
+.pgn__hyperlink {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $accent-color;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::before {
+    width: 100%;
+  }
 }

@@ -696,10 +696,17 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
 }
 
 // Footer de tabla - variante warning (para border-primary + bg-warning-100)
+// Mayor especificidad para sobreescribir Bootstrap
+.pgn__data-table .pgn__data-table-footer.border-top.border-primary.bg-warning-100,
+.pgn__data-table .pgn__data-table-footer.bg-warning-100,
 .pgn__data-table-footer.border-top.border-primary.bg-warning-100,
-.pgn__data-table-footer.bg-warning-100 {
+.pgn__data-table-footer.bg-warning-100.border-primary {
   background: lighten($info-color, 50%) !important;
   border-top: 3px solid $info-color !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-color: $info-color !important;
   border-radius: 0 0 16px 16px !important;
   padding: 1.5rem !important;
   position: relative;
@@ -713,7 +720,7 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
     left: 20%;
     right: 20%;
     height: 3px;
-    background: $info-color;
+    background: $info-color !important;
     border-radius: 0 0 8px 8px;
     transition: all 0.3s ease;
     animation: pulseWarningFooter 3s infinite;
@@ -723,22 +730,23 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
     background: lighten($info-color, 47%) !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba($info-color, 0.25);
+    border-color: darken($info-color, 5%) !important;
 
     &::before {
       left: 15%;
       right: 15%;
-      background: darken($info-color, 10%);
+      background: darken($info-color, 10%) !important;
     }
   }
 
   .small {
-    color: darken($info-color, 15%);
+    color: darken($info-color, 15%) !important;
     font-weight: 700;
     font-size: 0.95rem;
 
     &.font-weight-bold {
       font-weight: 900;
-      color: darken($info-color, 20%);
+      color: darken($info-color, 20%) !important;
       font-size: 1rem;
     }
   }
@@ -1026,3 +1034,25 @@ section.text-dark-700,
 .col-12.col-md-4.p-0.px-md-4 section:nth-child(1) { animation-delay: 0.4s; }
 .col-12.col-md-4.p-0.px-md-4 section:nth-child(2) { animation-delay: 0.6s; }
 .col-12.col-md-4.p-0.px-md-4 section:nth-child(3) { animation-delay: 0.8s; }
+
+// === OVERRIDE ESPECÍFICO PARA CLASES BOOTSTRAP ===
+// Regla con máxima especificidad para sobreescribir colores de Bootstrap
+.pgn__data-table-footer[class*="border-primary"][class*="bg-warning"] {
+  background: lighten($info-color, 50%) !important;
+  border-top-color: $info-color !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+// Override para texto dentro de elementos con clases Bootstrap
+.pgn__data-table-footer[class*="border-primary"] .small,
+.pgn__data-table-footer[class*="bg-warning"] .small {
+  color: darken($info-color, 15%) !important;
+}
+
+// Override adicional con !important para asegurar que funcione
+.border-primary.bg-warning-100.pgn__data-table-footer {
+  border-color: $info-color !important;
+  background-color: lighten($info-color, 50%) !important;
+}

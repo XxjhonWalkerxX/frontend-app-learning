@@ -4,9 +4,9 @@
 $primary-color: #5a122c;
 $secondary-color: #5a122c;
 $accent-color: #e6dbc7;
-$success-color: #28a745;
-$info-color: #17a2b8;
-$light-bg: #f8f9fa;
+$success-color: #a67b5b;
+$info-color: #d9d9d9;
+$light-bg: #556b2f;
 $white: #ffffff;
 $shadow-light: rgba(0, 0, 0, 0.1);
 $shadow-medium: rgba(0, 0, 0, 0.15);
@@ -158,6 +158,234 @@ $shadow-medium: rgba(0, 0, 0, 0.15);
     &:active {
       transform: translateY(-1px) scale(1.02);
     }
+  }
+}
+
+// === ALERTA DE CONTENIDO PROGRAMADO (SCHEDULED CONTENT) ===
+.alert-info.fade.alert-content,
+.alert.alert-info {
+  background: lighten($info-color, 45%) !important;
+  border: 2px solid lighten($info-color, 35%) !important;
+  border-radius: 24px !important;
+  padding: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+  box-shadow: 0 10px 40px rgba($info-color, 0.12), 
+              0 6px 20px rgba($info-color, 0.08),
+              0 3px 10px rgba($info-color, 0.06) !important;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  backdrop-filter: blur(20px);
+
+  // Borde superior distintivo
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: $info-color !important;
+    border-radius: 24px 24px 0 0;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 8px rgba($info-color, 0.3);
+  }
+
+  // Efecto glow sutil
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: transparent;
+    border-radius: 26px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    box-shadow: 0 0 25px rgba($accent-color, 0.4);
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 16px 56px rgba($info-color, 0.18), 
+                0 8px 28px rgba($info-color, 0.15),
+                0 4px 14px rgba($info-color, 0.12) !important;
+
+    &::before {
+      height: 6px !important;
+      background: $accent-color !important;
+      box-shadow: 0 3px 12px rgba($accent-color, 0.5) !important;
+    }
+
+    &::after {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
+    transform: translateY(-3px) scale(1.01) !important;
+  }
+
+  // Estilos para el contenido interior
+  .pgn__alert-message-wrapper {
+    .alert-message-content {
+      // Contenedor principal flexible
+      .d-flex {
+        align-items: center;
+        gap: 2rem;
+        
+        @media (max-width: 992px) {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 1.5rem;
+        }
+
+        // Columna del texto
+        .col-lg-7 {
+          flex: 1;
+          padding: 0 !important;
+
+          .alert-heading {
+            color: darken($info-color, 20%) !important;
+            font-weight: 900 !important;
+            margin-bottom: 1.2rem !important;
+            font-size: 1.5rem !important;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+            position: relative;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -6px;
+              left: 0;
+              width: 60px;
+              height: 4px;
+              background: $accent-color;
+              border-radius: 2px;
+              transition: width 0.4s ease;
+            }
+
+            &:hover::after {
+              width: 100px;
+            }
+          }
+
+          // Texto del cuerpo
+          + div,
+          ~ div:not(.flex-grow-0) {
+            color: darken($info-color, 15%) !important;
+            font-size: 1rem !important;
+            line-height: 1.6;
+            font-weight: 500;
+            margin: 0;
+          }
+        }
+
+        // Columna del botón
+        .flex-grow-0 {
+          .btn,
+          .btn-primary {
+            background: $info-color !important;
+            border: none !important;
+            color: $white !important;
+            border-radius: 35px !important;
+            padding: 1.2rem 3rem !important;
+            font-weight: 800 !important;
+            font-size: 1rem !important;
+            letter-spacing: 0.8px !important;
+            text-transform: uppercase !important;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba($info-color, 0.3) !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+            
+            // Efecto shimmer avanzado
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -150%;
+              width: 150%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba($white, 0.4), rgba($white, 0.6), rgba($white, 0.4), transparent);
+              transition: left 0.8s;
+              transform: skewX(-25deg);
+            }
+
+            // Efecto de resplandor
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 0;
+              height: 0;
+              background: rgba($white, 0.3);
+              border-radius: 50%;
+              transform: translate(-50%, -50%);
+              transition: all 0.6s;
+            }
+
+            &:hover {
+              background: darken($info-color, 8%) !important;
+              transform: translateY(-4px) scale(1.05) !important;
+              box-shadow: 0 12px 35px rgba($info-color, 0.5) !important;
+              
+              &::before {
+                left: 150%;
+              }
+
+              &::after {
+                width: 300px;
+                height: 300px;
+              }
+            }
+
+            &:active {
+              transform: translateY(-2px) scale(1.02) !important;
+              box-shadow: 0 8px 25px rgba($info-color, 0.4) !important;
+            }
+
+            &:focus {
+              outline: 3px solid $accent-color !important;
+              outline-offset: 3px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Animación de entrada específica
+  &.show {
+    animation: alertSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+  }
+}
+
+// Animación específica para alertas
+@keyframes alertSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(15px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 

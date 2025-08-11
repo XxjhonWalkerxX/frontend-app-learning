@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
-import FooterSlot from '@openedx/frontend-slot-footer';
 import { LOADED, LOADING } from '@src/constants';
 import HeaderSlot from '../plugin-slots/HeaderSlot';
 import useActiveEnterpriseAlert from '../alerts/active-enteprise-alert';
@@ -32,7 +31,6 @@ const CourseAccessErrorPage = ({ intl }) => {
         <PageLoading
           srMessage={intl.formatMessage(messages.loading)}
         />
-        <FooterSlot />
       </>
     );
   }
@@ -51,7 +49,6 @@ const CourseAccessErrorPage = ({ intl }) => {
           }}
         />
       </main>
-      <FooterSlot />
     </>
   );
 };

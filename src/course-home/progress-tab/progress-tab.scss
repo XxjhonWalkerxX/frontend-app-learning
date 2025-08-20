@@ -47,7 +47,7 @@ section.text-dark-700,
               0 4px 16px rgba($primary-color, 0.04),
               0 2px 8px rgba($primary-color, 0.02);
   margin-bottom: 2rem;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   backdrop-filter: blur(20px);
@@ -450,6 +450,12 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
     font-weight: 600;
     font-size: 0.8rem;
   }
+
+  // Asegurar que los textos de porcentaje sean visibles
+  .x-small {
+    display: block !important;
+    visibility: visible !important;
+  }
 }
 
 // Banner de éxito
@@ -650,48 +656,35 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
 
 // Footer de tabla - variante éxito
 .pgn__data-table-footer {
-  background: lighten($success-color, 45%) !important;
-  border-top: 3px solid $success-color !important;
-  border-radius: 0 0 16px 16px !important;
-  padding: 1.5rem !important;
+  overflow: visible !important;
+  border-radius: 0 0 12px 12px !important;
+  padding: 1.5rem 1rem !important;
+  transition: all 0.3s ease;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
 
-  // Línea superior decorativa
-  &::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: 20%;
-    right: 20%;
-    height: 3px;
-    background: $success-color;
-    border-radius: 0 0 8px 8px;
-    transition: all 0.3s ease;
-  }
+  &.bg-success-100 {
+    background: linear-gradient(135deg, lighten($success-color, 45%) 0%, lighten($success-color, 40%) 100%) !important;
+    border-top: 3px solid $success-color !important;
+    animation: pulseSuccessFooter 3s infinite;
 
-  &:hover {
-    background: lighten($success-color, 42%) !important;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba($success-color, 0.2);
+    .small {
+      color: darken($success-color, 15%) !important;
+      font-weight: 700;
+      font-size: 0.95rem;
 
-    &::before {
-      left: 15%;
-      right: 15%;
-      background: darken($success-color, 5%);
+      &.font-weight-bold {
+        font-weight: 900;
+        color: darken($success-color, 20%) !important;
+        font-size: 1rem;
+      }
     }
   }
 
-  .small {
-    color: darken($success-color, 15%);
-    font-weight: 700;
-    font-size: 0.95rem;
-
-    &.font-weight-bold {
-      font-weight: 900;
-      color: darken($success-color, 20%);
-      font-size: 1rem;
-    }
+  // Asegurar visibilidad en cualquier contexto
+  .small, .font-weight-bold {
+    display: block !important;
+    visibility: visible !important;
   }
 }
 
@@ -711,6 +704,8 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
   padding: 1.5rem !important;
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible !important;
+  z-index: 10;
 
   // Línea superior decorativa con efecto de atención
   &::before {
@@ -750,6 +745,12 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
       font-size: 1rem;
     }
   }
+
+  // Asegurar visibilidad en cualquier contexto
+  .small, .font-weight-bold {
+    display: block !important;
+    visibility: visible !important;
+  }
 }
 
 // === COLLAPSIBLE SECTIONS ===
@@ -765,10 +766,36 @@ section.text-dark-700.mb-4.rounded.raised-card.p-4 {
   }
 }
 
+// === FIJO: ASEGURAR VISIBILIDAD DE ELEMENTOS CRÍTICOS ===
+// Reglas específicas para elementos que podrían estar siendo cortados
+.course-home .progress-tab,
+.grades.my-4.p-4.rounded.raised-card,
+section.text-dark-700 {
+  
+  // Textos de porcentaje y etiquetas importantes
+  .x-small:not(.mb-4),
+  text.x-small,
+  .small,
+  .font-weight-bold {
+    display: inherit !important;
+    visibility: visible !important;
+    overflow: visible !important;
+  }
+
+  // Contenedores de tooltips y footers
+  .pgn__data-table-footer,
+  [data-testid="currentGradeTooltipContent"],
+  [data-testid="gradeSummaryFooterTotalWeightedGrade"] {
+    overflow: visible !important;
+    visibility: visible !important;
+    z-index: 10;
+  }
+}
+
 // === RELATED LINKS SIDEBAR ===
 .col-12.col-md-4.p-0.px-md-4 {
   section {
-    // Ocultar completamente el contenedor de Related Links
+    // Ocultar completamente el contenedor de Related Links pero mantener otros elementos x-small
     &.mb-4.x-small {
       display: none !important;
     }

@@ -72,7 +72,7 @@ const LoadedTabPage = ({
       <main id="main-content" className="d-flex flex-column flex-grow-1">
         <AlertList
           topic="outline"
-          className="mx-5 mt-3"
+          className="alert-list mx-0 mt-3"
           customAlerts={{
             ...enrollmentAlert,
             ...logistrationAlert,

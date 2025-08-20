@@ -1,10 +1,10 @@
 .container-xl.py-2.d-flex.align-items-center {
-  max-width: 100vw !important;
-  width: 100vw !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  max-width: calc(100vw - 2rem) !important;
+  width: calc(100vw - 2rem) !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
   box-sizing: border-box;
 }
 
@@ -23,12 +23,12 @@
 .container-xl.py-2.d-flex.align-items-center {
   @extend .site-header-desktop;
   gap: 1.5rem;
-  width: 100%;
-  max-width: 100vw !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  width: calc(100vw - 2rem);
+  max-width: calc(100vw - 2rem) !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
   background: #fff;
   z-index: 10;
 }
@@ -703,5 +703,94 @@ $emi-white: #ffffff;
   svg {
     color: #28a745 !important;
     fill: currentColor !important;
+  }
+}
+
+// === CORREGIR LAYOUT Y MÁRGENES GLOBALES ===
+
+// Contenedor principal con márgenes apropiados
+.container-xl {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: calc(100vw - 2rem) !important;
+}
+
+// Layout principal con márgenes
+main#main-content {
+  margin: 0 1rem !important;
+  padding: 0 !important;
+  max-width: calc(100vw - 2rem) !important;
+}
+
+// Navegación de curso con márgenes
+.course-tabs-navigation {
+  margin: 0 1rem !important;
+  padding: 0 !important;
+  max-width: calc(100vw - 2rem) !important;
+  
+  .container-xl {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1rem !important;
+  }
+}
+
+// AlertList con márgenes consistentes
+.alert-list {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+  max-width: calc(100vw - 2rem) !important;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .container-xl {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    max-width: calc(100vw - 1.5rem) !important;
+  }
+  
+  main#main-content {
+    margin: 0 0.75rem !important;
+    max-width: calc(100vw - 1.5rem) !important;
+  }
+  
+  .course-tabs-navigation {
+    margin: 0 0.75rem !important;
+    max-width: calc(100vw - 1.5rem) !important;
+  }
+  
+  .container-xl.py-2.d-flex.align-items-center {
+    margin-left: 0.75rem !important;
+    margin-right: 0.75rem !important;
+    max-width: calc(100vw - 1.5rem) !important;
+    width: calc(100vw - 1.5rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-xl {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    max-width: calc(100vw - 1rem) !important;
+  }
+  
+  main#main-content {
+    margin: 0 0.5rem !important;
+    max-width: calc(100vw - 1rem) !important;
+  }
+  
+  .course-tabs-navigation {
+    margin: 0 0.5rem !important;
+    max-width: calc(100vw - 1rem) !important;
+  }
+  
+  .container-xl.py-2.d-flex.align-items-center {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+    max-width: calc(100vw - 1rem) !important;
+    width: calc(100vw - 1rem) !important;
   }
 }

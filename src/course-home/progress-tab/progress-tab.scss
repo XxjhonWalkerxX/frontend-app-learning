@@ -1153,3 +1153,111 @@ html body .pgn__data-table-footer.bg-warning-100.border-primary .small {
   border-top-color: var(--emi-border-color) !important;
   color: var(--emi-text-color) !important;
 }
+
+// === CORREGIR TÍTULOS CORTADOS ===
+// Asegurar que los títulos principales tengan espacio suficiente
+h2, h3, h4, h5, h6 {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  white-space: normal !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+// Específicamente para Grade summary y Detailed grades
+.h3, h3 {
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+  line-height: 1.4 !important;
+  margin-bottom: 1rem !important;
+}
+
+// Contenedores de secciones
+section, .section {
+  overflow: visible !important;
+  
+  > h2, > h3, > h4, > .h2, > .h3, > .h4 {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    max-width: 100% !important;
+    width: auto !important;
+  }
+}
+
+// Asegurar que las tablas y contenido no interfieran con títulos
+.pgn__data-table {
+  margin-top: 1.5rem !important;
+  
+  // El título debe estar completamente visible antes de la tabla
+  &::before {
+    content: '';
+    display: block;
+    height: 0.5rem;
+    width: 100%;
+    clear: both;
+  }
+}
+
+// Corregir cualquier overflow en el contenido de progreso
+[class*="progress"], [class*="grade"] {
+  overflow: visible !important;
+  
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: normal !important;
+  }
+}
+
+// === CORREGIR TOOLTIPS Y HOVER EFFECTS ===
+// Asegurar que los tooltips no se corten
+.tooltip, [role="tooltip"], .pgn__tooltip {
+  z-index: 9999 !important;
+  overflow: visible !important;
+  max-width: 300px !important;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+// Corregir elementos que aparecen al hacer hover
+[data-testid*="tooltip"], [aria-describedby*="tooltip"] {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+// Asegurar que los iconos de información no causen overflow
+.fa-info-circle, .pgn__icon, [class*="icon"] {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+// Corregir elementos de porcentaje que se cortan al hacer hover
+.grade-bar, [class*="grade"], [class*="percent"] {
+  overflow: visible !important;
+  position: relative !important;
+  
+  text, .x-small, small {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: nowrap !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+// Específico para SVG y gráficos de barras
+svg {
+  overflow: visible !important;
+  
+  text {
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+}

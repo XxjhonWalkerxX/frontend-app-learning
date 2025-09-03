@@ -9,7 +9,6 @@ import {
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { useSelector } from 'react-redux';
 import SequenceExamWrapper from '@edx/frontend-lib-special-exams';
-import { useToggle } from '@openedx/paragon';
 
 import PageLoading from '@src/generic/PageLoading';
 import { useModel } from '@src/generic/model-store';
@@ -18,16 +17,13 @@ import SequenceContainerSlot from '../../../plugin-slots/SequenceContainerSlot';
 
 import { getCoursewareOutlineSidebarSettings } from '../../data/selectors';
 import CourseLicense from '../course-license';
-import Sidebar from '../sidebar/Sidebar';
-import NewSidebar from '../new-sidebar/Sidebar';
-import {
-  Trigger as CourseOutlineTrigger,
-  Sidebar as CourseOutlineTray,
-} from '../sidebar/sidebars/course-outline';
+import { NotificationsDiscussionsSidebarSlot } from '../../../plugin-slots/NotificationsDiscussionsSidebarSlot';
 import messages from './messages';
 import HiddenAfterDue from './hidden-after-due';
 import { SequenceNavigation, UnitNavigation } from './sequence-navigation';
 import SequenceContent from './SequenceContent';
+import { CourseOutlineSidebarSlot } from '../../../plugin-slots/CourseOutlineSidebarSlot';
+import { CourseOutlineSidebarTriggerSlot } from '../../../plugin-slots/CourseOutlineSidebarTriggerSlot';
 
 const Sequence = ({
   unitId,
@@ -38,7 +34,6 @@ const Sequence = ({
   previousSequenceHandler,
 }) => {
   const intl = useIntl();
-  const [isOpen, open, close] = useToggle();
   const {
     canAccessProctoredExams,
     license,
@@ -46,9 +41,9 @@ const Sequence = ({
   const {
     isStaff,
     originalUserIsStaff,
-    isNewDiscussionSidebarViewEnabled,
   } = useModel('courseHomeMeta', courseId);
   const sequence = useModel('sequences', sequenceId);
+  const section = useModel('sections', sequence ? sequence.sectionId : null);
   const unit = useModel('units', unitId);
   const sequenceStatus = useSelector(state => state.courseware.sequenceStatus);
   const sequenceMightBeUnit = useSelector(state => state.courseware.sequenceMightBeUnit);
@@ -149,6 +144,7 @@ const Sequence = ({
 
   const renderUnitNavigation = (isAtTop) => (
     <UnitNavigation
+      courseId={courseId}
       sequenceId={sequenceId}
       unitId={unitId}
       isAtTop={isAtTop}
@@ -166,8 +162,13 @@ const Sequence = ({
   const defaultContent = (
     <>
       <div className="sequence-container d-inline-flex flex-row w-100">
-        <CourseOutlineTrigger />
-        <CourseOutlineTray />
+        <CourseOutlineSidebarTriggerSlot
+          sectionId={section ? section.id : null}
+          sequenceId={sequenceId}
+          isStaff={isStaff}
+          unitId={unitId}
+        />
+        <CourseOutlineSidebarSlot />
         <div className="sequence w-100">
           {!isEnabledOutlineSidebar && (
             <div className="sequence-navigation-container">
@@ -189,9 +190,6 @@ const Sequence = ({
                 {...{
                   nextSequenceHandler,
                   handleNavigate,
-                  isOpen,
-                  open,
-                  close,
                 }}
               />
             </div>
@@ -204,11 +202,14 @@ const Sequence = ({
               sequenceId={sequenceId}
               unitId={unitId}
               unitLoadedHandler={handleUnitLoaded}
+              isOriginalUserStaff={originalUserIsStaff}
+              isEnabledOutlineSidebar={isEnabledOutlineSidebar}
+              renderUnitNavigation={renderUnitNavigation}
             />
             {unitHasLoaded && renderUnitNavigation(false)}
           </div>
         </div>
-        {isNewDiscussionSidebarViewEnabled ? <NewSidebar /> : <Sidebar />}
+        <NotificationsDiscussionsSidebarSlot courseId={courseId} />
       </div>
       <SequenceContainerSlot courseId={courseId} unitId={unitId} />
     </>
@@ -224,7 +225,6 @@ const Sequence = ({
           originalUserIsStaff={originalUserIsStaff}
           canAccessProctoredExams={canAccessProctoredExams}
         >
-          {isEnabledOutlineSidebar && renderUnitNavigation(true)}
           {defaultContent}
         </SequenceExamWrapper>
         <CourseLicense license={license || undefined} />

@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
 import './courseware/data/__factories__';
 import './course-home/data/__factories__';
 import { getConfig, mergeConfig } from '@edx/frontend-platform';
@@ -60,6 +59,18 @@ const supressWarningBlock = (callback) => {
   console.warn = originalConsoleWarning;
 };
 /* eslint-enable no-console */
+
+// Mocks for HTML Dialogs behavior. */
+// jsdom does not support HTML Dialogs yet: https://github.com/jsdom/jsdom/issues/3294
+HTMLDialogElement.prototype.show = jest.fn();
+HTMLDialogElement.prototype.showModal = jest.fn(function mock() {
+  const onShowModal = new CustomEvent('show_modal');
+  this.dispatchEvent(onShowModal);
+});
+HTMLDialogElement.prototype.close = jest.fn(function mock() {
+  const onClose = new CustomEvent('close');
+  this.dispatchEvent(onClose);
+});
 
 // Mock Intersection Observer which is unavailable in the context of a test.
 global.IntersectionObserver = jest.fn(function mockIntersectionObserver() {

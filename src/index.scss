@@ -48,11 +48,35 @@
 
 .nav-course a {
   @extend .nav-link;
-  font-size: 1rem;
-  margin-left: 1.5rem;
-  margin-right: 0.5rem;
-  text-decoration: none;
-  transition: color 0.2s;
+}
+
+// --- EMI HEADER HELP BUTTON STYLES ---
+/* Estilo para el botón Help del header */
+header a.text-gray-700,
+header button.text-gray-700,
+header .text-gray-700 {
+  color: white !important;
+}
+
+/* Estilo específico para el botón Help en hover y focus */
+header a.text-gray-700:hover,
+header a.text-gray-700:focus,
+header button.text-gray-700:hover,
+header button.text-gray-700:focus {
+  color: #f8f9fa !important; /* Un blanco ligeramente más suave en hover */
+}
+
+/* Si el botón Help tiene una clase específica, también lo cubrimos */
+header .help-button,
+header [class*="help"] {
+  color: white !important;
+}
+
+header .help-button:hover,
+header .help-button:focus,
+header [class*="help"]:hover,
+header [class*="help"]:focus {
+  color: #f8f9fa !important;
 }
 .nav-course a:hover {
   color: #e6dbc7 !important;
